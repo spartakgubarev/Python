@@ -92,7 +92,7 @@
 #     inverted = inverted*10+(original % 10)
 #     original //= 10
 #     print(inverted)
-
+# 
 # original = 234567
 # inverted = 0
 # while original !=0:
@@ -102,3 +102,26 @@
 #     print ('Пожалуй')
 #     print ('хватит')
 # print(inverted)
+
+# for i in 1,2,3,4,5:
+#     print (i**2)
+
+# list = [1,2,3,4,10,5,6]
+# for i in list:
+#     print (i)
+
+# r = range (10)
+# for i in r:
+#     print(i)
+
+# for i in range (5):
+#     print(i)
+
+# for i in range (1, 5):
+#     print(i)
+
+# for i in range (1, 10, 2):
+#     print(i)
+
+# for i in 'qw - erty':
+#     print(i)
