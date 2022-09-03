@@ -92,7 +92,7 @@
 #     inverted = inverted*10+(original % 10)
 #     original //= 10
 #     print(inverted)
-# 
+#
 # original = 234567
 # inverted = 0
 # while original !=0:
@@ -125,3 +125,46 @@
 
 # for i in 'qw - erty':
 #     print(i)
+
+# text = 'съешь еще этих мягких французских булок'
+# print (len(text))       # 39
+# print ('еще' in text)   # true
+# print (text.isdigit())  # false имеются ли числа в тексте
+# print (text.islower())  # true является ли текст нижним регистром
+# print(text.replace('еще','ЕЩЕ'))    # заменить текст
+
+# for c in text:
+#     print(c)
+
+# help(int)   # подсказка что такое int, можно любую вводить
+
+# text = 'съешь еще этих мягких французских булок'
+# print(text[0])          # c
+# print(text[1])         # ъ
+# print(text[len(text)-1])  # к
+# print(text[-5])         # б
+# print(text[:])         # print(text)
+# print(text[:2])        # съ
+# print(text[len(text)-2:])  # ок
+# print(text[2:9])        # ещь еще
+# print(text[6:-18])      # еще этих мягких
+# print(text[0:len(text):6])  # сеикакл
+# print(text[::6])        # сеикакл
+# text = text[2:9] + text[-5] + text[:2]  # ...
+# print(text)
+
+# списки
+numbers = [1, 2, 3, 4, 5, 6, 7]
+print(numbers)
+ran = range(1, 6)
+print(type(ran))
+numbers = list(ran)
+print(type(numbers))
+
+numbers[0] = 10
+print(f'{len(numbers)} len')
+print(numbers)
+for i in numbers:
+    i *= 2
+    print(i)
+print(numbers)
