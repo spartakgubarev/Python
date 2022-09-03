@@ -154,17 +154,30 @@
 # print(text)
 
 # списки
-numbers = [1, 2, 3, 4, 5, 6, 7]
-print(numbers)
-ran = range(1, 6)
-print(type(ran))
-numbers = list(ran)
-print(type(numbers))
+# numbers = [1, 2, 3, 4, 5, 6, 7]
+# print(numbers)
+# ran = range(1, 6)
+# print(type(ran))
+# numbers = list(ran)
+# print(type(numbers))
 
-numbers[0] = 10
-print(f'{len(numbers)} len')
-print(numbers)
-for i in numbers:
-    i *= 2
-    print(i)
-print(numbers)
+# numbers[0] = 10
+# print(f'{len(numbers)} len')
+# print(numbers)
+# for i in numbers:
+#     i *= 2
+#     print(i)
+# print(numbers)
+
+colors = ['red', 'green', 'blue']
+for e in colors:
+    print(e)    # red green blue
+
+for e in colors:
+    print(e*2)  # redred greengreen blueblue
+
+colors.append('gray')  # добавить в конец
+print(colors == ['red', 'green', 'blue', 'gray'])  # true
+colors.remove('red')  # del colors[0] # удалить элемент
+del colors[0]
+print(colors)
