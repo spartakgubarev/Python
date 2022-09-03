@@ -169,15 +169,29 @@
 #     print(i)
 # print(numbers)
 
-colors = ['red', 'green', 'blue']
-for e in colors:
-    print(e)    # red green blue
+# colors = ['red', 'green', 'blue']
+# for e in colors:
+#     print(e)    # red green blue
 
-for e in colors:
-    print(e*2)  # redred greengreen blueblue
+# for e in colors:
+#     print(e*2)  # redred greengreen blueblue
 
-colors.append('gray')  # добавить в конец
-print(colors == ['red', 'green', 'blue', 'gray'])  # true
-colors.remove('red')  # del colors[0] # удалить элемент
-del colors[0]
-print(colors)
+# colors.append('gray')  # добавить в конец
+# print(colors == ['red', 'green', 'blue', 'gray'])  # true
+# colors.remove('red')  # del colors[0] # удалить элемент
+# del colors[0]
+# print(colors)
+
+# function
+def f(x):
+    if x == 1:
+        return 'целое'
+    elif x == 2.3:
+        return 23
+    else:
+        return
+
+
+for arg in [1, 2.3, 3]:
+    print(f(arg))
+    print(type(f(arg)))
