@@ -47,5 +47,17 @@
 # print(f'Произведение элементов в диапозоне [{str_list}] равно {summ}')
 
 # Реализуйте алгоритм перемешивания списка.
+from random import randint
 
-
+number_digits = 50
+n = int(input('Введите количество массива N:'))
+arr = [randint(0, 50) for i in range(n)]
+arr_new = list()
+print(arr)
+_arr = arr
+for i in range(n):
+    rnd = randint(0, n-1-i)
+    arr_new.append(_arr[rnd])
+    _arr.pop(rnd)
+arr = arr_new
+print(arr)
