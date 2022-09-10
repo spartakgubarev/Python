@@ -37,7 +37,6 @@
 # from random import randint
 # summ = 1
 # n = int(input('Введите количество элеменов N: '))
-# random_number = randint(-n, n)
 # arr = [randint(-n, n) for i in range(-n, n+1)]
 # print(arr)
 # search = input(
@@ -48,3 +47,5 @@
 # print(f'Произведение элементов в диапозоне [{str_list}] равно {summ}')
 
 # Реализуйте алгоритм перемешивания списка.
+
+
