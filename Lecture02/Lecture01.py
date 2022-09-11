@@ -110,16 +110,52 @@
 #     print(k)
 
 # МНОЖЕСТВА
+# colors = {'red', 'green', 'blue'}
+# print(type(colors)) # тип данный set - множества
+# print(colors) # тип данный set - множества
+# colors.add('red') # не добавит, т.к. есть элемент
+# print(colors) # тип данный set - множества
+# colors.add('grey') # добавит элемент в конец
+# print(colors) # тип данный set - множества
+# colors.remove('red') # удалит, если элемента нет, будет ошибка
+# colors.discard('blue') # удалит blue, если нет, то ошибки не будет
+# print(colors) # тип данный set - множества
+# colors.clear() # { } очистить множества
+# print(colors) # тип данный set - множества
 
-colors = {'red', 'green', 'blue'}
-print(type(colors)) # тип данный set - множества
-print(colors) # тип данный set - множества
-colors.add('red') # не добавит, т.к. есть элемент
-print(colors) # тип данный set - множества
-colors.add('grey') # добавит элемент в конец
-print(colors) # тип данный set - множества
-colors.remove('red') # удалит, если элемента нет, будет ошибка
-colors.discard('blue') # удалит blue, если нет, то ошибки не будет
-print(colors) # тип данный set - множества
-colors.clear() # { } очистить множества
-print(colors) # тип данный set - множества
+# a = {1, 2, 3, 5, 8}
+# b = {2, 5, 8, 13, 21}
+# c = a.copy()    # c = {1, 2, 3, 5, 8}
+# u = a.union(b)  # u = {1, 2, 3, 5, 8, 13, 21}
+# i = a.intersection(b)   # i = {8, 2, 5}
+# dl = a.difference(b)    # dl = {1, 3}
+# dr = b.difference(a)    # dr = {13, 21}
+
+# q = a \
+#     .union(b) \
+#         .difference(a.intersection(b))
+# # {1, 21, 3, 13}
+# print(q)
+# s = frozenset(a)    # неизменяемые множества
+
+
+# ЧУТЬ БОЛЕЕ ПОДРОБНО О СПИСКАХ
+# list1 = [1, 2, 3, 4, 5]
+# list2 = list1
+# list1[0] = 123
+# list2[1] = 333  # в list1 - данны тоже поменяются
+# for e in list1:
+#     print(e)
+# print()
+# for e in list2:
+#     print(e)
+
+# list1 = [1, 2, 3, 4, 5]
+# print(list1.pop())  # удаляет последний элемент
+# print(list1)
+# print(list1.pop(2))  # удаляет второй элемент
+# print(list1)
+# print(list1.insert(1, 666))  # добавить 666 после первой позиции
+# print(list1)
+# print(list1.append(999))  # добавить 999 в конец
+# print(list1)
