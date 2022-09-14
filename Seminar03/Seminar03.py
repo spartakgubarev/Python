@@ -27,19 +27,23 @@
 # ['efg23'. '79234gefg', 'sdgs', 'g53']
 # '2
 # ['efg23', '79234gefg']
+def find_str(array, find_number):
+    arr_new = []
+    index = 0
+    for i in array:
+        count = 0
+        while count < len(i):
+            if find_number == i[count:count + len(find_number)]:
+                arr_new.append(i)
+                count = len(i)
+            count += 1
+    return arr_new
+
 arr = ['ertg45yfg23', '792345yt45y4gefg', 'sdfh54h54ygs',
        'g545y4yy45y3', '34545ttgr', '56544reht55', '45yh65jreh']
-arr_new = []
-index = 0
 number = str(input('Введите искомое число: '))
-for i in arr:
-    count = 0
-    while count < len(i):
-        if number == i[count:count + len(number)]:
-            arr_new.append(i)
-            count = len(i)
-        count += 1
-print(arr_new)
+a = find_str(arr, number)
+print(a)
 
 
 # 3. Напишите программу, которая определит позицию второго вхождения строки в списке, либо сообщит, что ее нет.
