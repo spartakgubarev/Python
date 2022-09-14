@@ -1,24 +1,26 @@
 # 1. Реализуйте алгоритм задания случайных чисел без использования встроенного генератора псевдослучайных чисел.
 import time
-
-str_list = input(
-    'Введите диапозон случайных чисел через пробел, пример: [1 10]: ').split(sep=' ')
-int_list = [int(x) for x in str_list]
-# str_list = ['50', '1000']
-# int_list = [50, 1000]
-b = True
-find = ''
-while b:
-    if len(find) > len(str(1)):
-        find = ''
-    sec = time.time()
-    time.sleep(1/int(str(sec)[-4:]))
-    find += str(sec)[-2]             # предпоследний символ чтобы нуль включался тоже, иначе ноль обрезается
-    if int(str(sec)[-1]) > 5:
-        find += str(sec)[-2]
-    if int_list[0] < int(find) < int_list[1]:
-        b = False
-print(int(find))
+def rnd():
+    str_list = input(
+        'Введите диапозон случайных чисел через пробел, пример: [1 10]: ').split(sep=' ')
+    int_list = [int(x) for x in str_list]
+    # str_list = ['50', '1000']
+    # int_list = [50, 1000]
+    b = True
+    find = ''
+    while b:
+        if len(find) > len(str(1)):
+            find = ''
+        sec = time.time()
+        time.sleep(1/int(str(sec)[-4:]))
+        find += str(sec)[-2]             # предпоследний символ чтобы нуль включался тоже, иначе ноль обрезается
+        if int(str(sec)[-1]) > 5:
+            find += str(sec)[-2]
+        if int_list[0] < int(find) < int_list[1]:
+            b = False
+    return find
+rnd_rnd = int(rnd())
+print(rnd_rnd)
 
  
 # 2. Задайте список. Напишите программу, которая определит, присутствует ли в заданном списке строк некое число.
