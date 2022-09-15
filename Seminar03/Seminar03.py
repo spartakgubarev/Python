@@ -27,23 +27,23 @@
 # ['efg23'. '79234gefg', 'sdgs', 'g53']
 # '2
 # ['efg23', '79234gefg']
-def find_str(array, find_number):
-    arr_new = []
-    index = 0
-    for i in array:
-        count = 0
-        while count < len(i):
-            if find_number == i[count:count + len(find_number)]:
-                arr_new.append(i)
-                count = len(i)
-            count += 1
-    return arr_new
+# def find_str(array, find_number):
+#     arr_new = []
+#     index = 0
+#     for i in array:
+#         count = 0
+#         while count < len(i):
+#             if find_number == i[count:count + len(find_number)]:
+#                 arr_new.append(i)
+#                 count = len(i)
+#             count += 1
+#     return arr_new
 
-arr = ['ertg45yfg23', '792345yt45y4gefg', 'sdfh54h54ygs',
-       'g545y4yy45y3', '34545ttgr', '56544reht55', '45yh65jreh']
-number = str(input('Введите искомое число: '))
-a = find_str(arr, number)
-print(a)
+# arr = ['ertg45yfg23', '792345yt45y4gefg', 'sdfh54h54ygs',
+#        'g545y4yy45y3', '34545ttgr', '56544reht55', '45yh65jreh']
+# number = str(input('Введите искомое число: '))
+# a = find_str(arr, number)
+# print(a)
 
 
 # 3. Напишите программу, которая определит позицию второго вхождения строки в списке, либо сообщит, что ее нет.
@@ -53,3 +53,34 @@ print(a)
 # список ["йцу", "фыв", "ячс", "цук", "йцукен"], ищем: "йцу", ответ: -1
 # список ["123", "234", 123, "567"], ищем: "123", ответ: -1
 # список [], ищем: "123" ответ: -1
+
+
+def find_search(arr, search):
+    count = 0
+    index = 0
+    for i in arr:
+        # print(i)
+        if search == i:
+            count += 1
+            if count == 2:
+                return index
+        index += 1
+    return (-1)
+
+
+a = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+a1 = "qwe"    # ответ: 3
+b = ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"]
+b1 = "йцу"    # ответ: 5
+c = ["йцу", "фыв", "ячс", "цук", "йцукен"]
+c1 = "йцу"    # ответ: -1
+d = ["123", "234", 123, "567"]
+d1 = "123"    # ответ: -1
+e = []
+e1 = "123"    # ответ: -1
+
+print(f'Ответ: {find_search(a, a1)}')
+print(f'Ответ: {find_search(b, b1)}')
+print(f'Ответ: {find_search(c, c1)}')
+print(f'Ответ: {find_search(d, d1)}')
+print(f'Ответ: {find_search(e, e1)}')
