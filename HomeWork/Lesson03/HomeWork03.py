@@ -32,31 +32,43 @@
 # 3. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между
 # максимальным и минимальным значением дробной части элементов.
 # Пример: # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
-def difference_real_numbers(list):
-    list1 = []
-    for i in range(len(list)):
-        list1.append(round(list[i] % 1, len(str(list[i]))-2))
-    min_list1 = list1[0]
-    max_list1 = list1[0]
-    for e in range(1, len(list1)):
-        if list1[e] < min_list1:
-            min_list1 = list1[e]
-        if list1[e] > max_list1:
-            max_list1 = list1[e]
-    if len(str(max_list1)) > len(str(min_list1)):
-        number_characters = len(str(max_list1))
-    else:
-        number_characters = len(str(min_list1))
-    return (f'{list} => {max_list1 - min_list1}')
+# def difference_real_numbers(list):
+#     list1 = []
+#     for i in range(len(list)):
+#         list1.append(round(list[i] % 1, len(str(list[i]))-2))
+#     min_list1 = list1[0]
+#     max_list1 = list1[0]
+#     for e in range(1, len(list1)):
+#         if list1[e] < min_list1:
+#             min_list1 = list1[e]
+#         if list1[e] > max_list1:
+#             max_list1 = list1[e]
+#     if len(str(max_list1)) > len(str(min_list1)):
+#         number_characters = len(str(max_list1))
+#     else:
+#         number_characters = len(str(min_list1))
+#     return (f'{list} => {max_list1 - min_list1}')
 
-arr = [1.1, 1.211, 3.1, 10.01, 0.0001]
-print(difference_real_numbers(arr))
-
+# arr = [1.1, 1.211, 3.1, 10.01, 0.0001]
+# print(difference_real_numbers(arr))
 
 # 4. Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 # Пример: # - 45 -> 101101
 # - 3 -> 11
 # - 2 -> 10
+def binary_system(binary, result):
+    if binary > 0:
+        result = result + str(binary % 2)
+        return binary_system(binary // 2, result)
+    else:
+        return result
+
+
+number = int(input('Введите десятичное число, переведу в двоичное: '))
+result = ''
+a = (binary_system(number, result))
+print(a)
+print(a[::-1])
 
 
 # 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
