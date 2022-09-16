@@ -67,8 +67,7 @@ def binary_system(binary, result):
 number = int(input('Введите десятичное число, переведу в двоичное: '))
 result = ''
 a = (binary_system(number, result))
-print(a)
-print(a[::-1])
+print(f'{number} --> {a[::-1]}')
 
 
 # 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
