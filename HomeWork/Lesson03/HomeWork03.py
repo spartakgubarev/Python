@@ -56,20 +56,36 @@
 # Пример: # - 45 -> 101101
 # - 3 -> 11
 # - 2 -> 10
-def binary_system(binary, result):
-    if binary > 0:
-        result = result + str(binary % 2)
-        return binary_system(binary // 2, result)
-    else:
-        return result
+# def binary_system(binary, result):
+#     if binary > 0:
+#         result = result + str(binary % 2)
+#         return binary_system(binary // 2, result)
+#     else:
+#         return result
 
 
-number = int(input('Введите десятичное число, переведу в двоичное: '))
-result = ''
-a = (binary_system(number, result))
-print(f'{number} --> {a[::-1]}')
+# number = int(input('Введите десятичное число, переведу в двоичное: '))
+# result = ''
+# a = (binary_system(number, result))
+# print(f'{number} --> {a[::-1]}')
 
 
 # 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
 # Пример: # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 # [Негафибоначчи]
+def fibonacci(n):
+    list = [0, 1]
+    if n >= 2:
+        for i in range(2, n+1):
+            list.append(list[i-2] + list[i-1])
+        list1 = list[1:].copy()
+        for e in range(1, len(list1), 2):
+            list1[e] = list1[e] * -1
+        list1.reverse()
+        return (list1 + list)
+    else:
+        return list
+
+
+number = int(input('Введите колиество чисел Фибоначи: '))
+print(fibonacci(number))
