@@ -3,23 +3,35 @@
 # ******
 # 1. Вычислить число c заданной точностью d
 # Пример: # при $d = 0.001, π = 3.141
-def rounding(number, coefficient):
-    print(f'{number} - {type(number)}')
-    count = 0
-    while coefficient % 1 != 0:
-        count += 1
-        coefficient *= 10
-    increment = (number * 10 ** count // 1) * 10 ** -count
-    return print(increment)
+# def rounding(number, coefficient):
+#     print(f'{number} - {type(number)}')
+#     count = 0
+#     while coefficient % 1 != 0:
+#         count += 1
+#         coefficient *= 10
+#     increment = (number * 10 ** count // 1) * 10 ** -count
+#     return print(increment)
 
 
-num = float(input('Введите дробное число: '))
-d = float(input('С точностью до скольки знаков после запятой в вормате (0.001): '))
-rounding(num, d)
+# num = float(input('Введите дробное число: '))
+# d = float(input('С точностью до скольки знаков после запятой в вормате (0.001): '))
+# rounding(num, d)
 
 # ******
 # 2. Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
 # "20" -> [2, 2, 5]
+def prime_factors(n):
+    list = []
+    for i in range(2, n+1):
+        while n % i == 0:
+            n = n / i
+            list.append(i)
+    return list
+
+
+number = int(input('Введите число, составлю простые множители числа: '))
+list = prime_factors(number)
+print(list)
 
 # ******
 # 3. Задайте последовательность чисел. Напишите программу, которая выведет список
