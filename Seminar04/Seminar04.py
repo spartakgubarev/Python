@@ -15,53 +15,71 @@
 # ************
 # # 2. Найдите корни квадратного уравнения Ax² + Bx + C = 0 двумя способами:
 # 1) с помощью математических формул нахождения корней квадратного уравнения
-import math
+# import math
 
 
-def int_number_str(number):
-    list = []
-    for i in number:
-        list.append(int(i))
-    a = list[0]
-    b = list[1]
-    c = list[2]
-    d = b ** 2 - 4 * a * c
-    if d > 0:
-        x_1 = (-b + d ** 0.5) / (2 * a)
-        x_2 = (-b - d ** 0.5) / (2 * a)
-        return print(x_1, x_2)
-    else:
-        return print('Решений нет.')
+# def int_number_str(number):
+#     list = []
+#     for i in number:
+#         list.append(int(i))
+#     a = list[0]
+#     b = list[1]
+#     c = list[2]
+#     d = b ** 2 - 4 * a * c
+#     if d > 0:
+#         x_1 = (-b + d ** 0.5) / (2 * a)
+#         x_2 = (-b - d ** 0.5) / (2 * a)
+#         return print(x_1, x_2)
+#     else:
+#         return print('Решений нет.')
 
 
-abc = input(
-    'Введите значения квадратного уравнения через пробел, ax^2 + bx + c = 0: ').split()
-int_number_str(abc)
+# abc = input(
+#     'Введите значения квадратного уравнения через пробел, ax^2 + bx + c = 0: ').split()
+# int_number_str(abc)
 
 # 2) с помощью дополнительных библиотек Python
 
 
-def int_number_str(number):
-    list = []
-    for i in number:
-        list.append(int(i))
-    a = list[0]
-    b = list[1]
-    c = list[2]
-    d = math.pow(b, 2) - 4 * a * c
-    if d > 0:
-        x_1 = (-b + math.sqrt(d)) / (2 * a)
-        x_2 = (-b - math.sqrt(d)) / (2 * a)
-        return print(x_1, x_2)
-    else:
-        return print('Решений нет.')
+# def int_number_str(number):
+#     list = []
+#     for i in number:
+#         list.append(int(i))
+#     a = list[0]
+#     b = list[1]
+#     c = list[2]
+#     d = math.pow(b, 2) - 4 * a * c
+#     if d > 0:
+#         x_1 = (-b + math.sqrt(d)) / (2 * a)
+#         x_2 = (-b - math.sqrt(d)) / (2 * a)
+#         return print(x_1, x_2)
+#     else:
+#         return print('Решений нет.')
 
 
-abc = input(
-    'Введите значения квадратного уравнения через пробел, ax^2 + bx + c = 0: ').split()
-int_number_str(abc)
+# abc = input(
+#     'Введите значения квадратного уравнения через пробел, ax^2 + bx + c = 0: ').split()
+# int_number_str(abc)
 
 
 # ************
 # 3. Задайте два числа. Напишите программу, которая найдёт НОК (наименьшее общее кратное) этих двух чисел.
 # Ответ записать в файл.
+def LCM(first, second):
+    summ = 0
+    if first > second:
+        min_LCM = second
+        max_LCM = first
+    else:
+        min_LCM = first
+        max_LCM = second
+    k_1 = min_LCM
+
+    while min_LCM % max_LCM != 0:
+        min_LCM += k_1
+    return print(f'[{first} ; {second}]  --> {min_LCM}')
+
+
+n_1 = int(input('Введите первое число: '))
+n_2 = int(input('Введите второе число: '))
+LCM(n_1, n_2)
