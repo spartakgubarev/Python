@@ -37,17 +37,17 @@
 # 3. Задайте последовательность чисел. Напишите программу, которая выведет список
 # неповторяющихся элементов исходной последовательности.
 # [1, 1, 2, 3, 4, 5, 5] -> [2, 3, 4]
-def search_repetitions(old_list):
-    _list = []
-    for i in range(len(old_list)):
-        if (old_list[i] not in old_list[i+1:]) and (old_list[i] not in old_list[:i]):
-            _list.append(old_list[i])
-    return _list
+# def search_repetitions(old_list):
+#     _list = []
+#     for i in range(len(old_list)):
+#         if (old_list[i] not in old_list[i+1:]) and (old_list[i] not in old_list[:i]):
+#             _list.append(old_list[i])
+#     return _list
 
 
-new_list = [8, 7, 6, 1, 2, 4, 1, 5, 6, 7, 9, 8, 1, 3, 4]
-list = search_repetitions(new_list)
-print(f'{new_list} -> {list}')
+# new_list = [8, 7, 6, 1, 2, 4, 1, 5, 6, 7, 9, 8, 1, 3, 4]
+# list = search_repetitions(new_list)
+# print(f'{new_list} -> {list}')
 
 
 # ******
@@ -55,6 +55,36 @@ print(f'{new_list} -> {list}')
 # (значения от 0 до 100) многочлена и записать в файл многочлен степени k.
 # Пример:
 # k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+
+# import random
+
+
+# def degree_polynomial(count, rnd_min, rnd_max):
+#     k = count
+#     func = 'k = ' + str(count) + ' --> '
+#     k_str = ''
+#     while count != 0:
+#         rnd = (random.randint(rnd_min, rnd_max))
+#         k_str = str(count)
+#         func += str(rnd) + '*' + 'x^' + k_str + ' + '
+#         if count == 1:
+#             rnd = (random.randint(rnd_min, rnd_max))
+#             func += str(rnd) + ' = 0'
+#         count -= 1
+#     return func
+
+
+# rnd_min1 = 0
+# rnd_max2 = 100
+# count1 = int(input('Введите натуральную степень числа к= '))
+# formula = degree_polynomial(count1, rnd_min1, rnd_max2)
+# print(f'{formula}')
+
+# path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson04/degree_polynomial'
+# with open(path, 'a') as data:
+#     data.write(formula + '\n')
+#     data.close()
+
 
 # ******
 # 5. Даны два файла, в каждом из которых находится запись многочлена.
