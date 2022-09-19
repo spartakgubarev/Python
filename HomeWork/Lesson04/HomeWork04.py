@@ -98,13 +98,19 @@ def data_extraction(path_end):
     data.close
     return text_end
 
+
 path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson04/degree_polynomial.txt'
 path1 = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson04/degree_polynomial_1.txt'
 text = data_extraction(path)
 text1 = data_extraction(path1)
 
+my_string = (text[text.find('>') +2 : -text.find('=') - 3]).split(sep=' + ') 
+#+ text[text.find('=') :- 2]
+#  + text[text.find('=') :- 2] + text.split(sep=' + ')
+
 print(text)
-print(text1)
+print(my_string)
+# print(text1)
 
 # Чтение данных из файла
 # path = 'file.txt'
