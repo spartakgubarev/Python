@@ -89,33 +89,64 @@
 # ******
 # 5. Даны два файла, в каждом из которых находится запись многочлена.
 # Задача - сформировать файл, содержащий сумму многочленов.
-
-# Чтение данных из файла
+# Функция чтение данных из файла
 def data_extraction(path_end):
     data = open(path_end, 'r')
     for line in data:
         text_end = line
     data.close
     return text_end
+# Функция из строки собираем числа (подготовка к сложению)
+def summ_string_integer(text, text1):
+    summ = []
+    my_string = (text[text.find('>') +2 : -text.find('=') - 3]).split(sep=' + ')
+    my_string1 = (text1[text1.find('>') +2 : -text1.find('=') - 3]).split(sep=' + ')
+    for i in range(len(my_string)-1):
+        my_string[i] = my_string[i][:my_string[i].find('*')]
 
+    for i in range(len(my_string1)-1):
+        my_string1[i] = my_string1[i][:my_string1[i].find('*')]
+
+    my_string_revers = my_string[::-1]
+    my_string1_revers = my_string1[::-1]
+
+    if len(my_string_revers) > len(my_string1_revers):
+        for i in range(len(my_string_revers) - len(my_string1_revers)):
+            my_string1_revers.append('0')
+        else:
+            for i in range(len(my_string1_revers) - len(my_string_revers)):
+                my_string_revers.append('0')
+
+    my_int = [int(x) for x in my_string_revers]
+    my_int1 = [int(y) for y in my_string1_revers]
+
+    for i in range(len(my_int)):
+        summ.append(my_int[i] + my_int1[i])
+    return summ
+# Функция Создание строки многочлена
+def degree_polynomial(arr_revers):
+    arr = arr_revers[::-1]
+    index = 0
+    count = len(arr)-1
+    func = 'Cумма многочелов = '
+    k_str = ''
+    while count != 0:
+        k_str = str(count)
+        func += str(arr[index]) + '*' + 'x^' + k_str + ' + '
+        index += 1
+        count -= 1
+        if count == 0:
+            func += str(arr[index]) + ' = 0'
+    return func
 
 path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson04/degree_polynomial.txt'
 path1 = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson04/degree_polynomial_1.txt'
-text = data_extraction(path)
-text1 = data_extraction(path1)
+text_first = data_extraction(path)
+text1_second = data_extraction(path1)
 
-my_string = (text[text.find('>') +2 : -text.find('=') - 3]).split(sep=' + ') 
-#+ text[text.find('=') :- 2]
-#  + text[text.find('=') :- 2] + text.split(sep=' + ')
+summ = summ_string_integer(text_first, text1_second) # Cумма многочленов выделенных из строки
+summ_final = degree_polynomial(summ)
 
-print(text)
-print(my_string)
-# print(text1)
-
-# Чтение данных из файла
-# path = 'file.txt'
-# data = open(path, 'r')
-# for line in data:
-#     print(line)
-# data.close
-# exit()      # после этой команды код не будет выполнять никакой!!!
+print(text_first)
+print(text1_second)
+print (summ_final)
