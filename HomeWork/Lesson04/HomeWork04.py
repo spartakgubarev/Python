@@ -99,8 +99,10 @@ def data_extraction(path_end):
 # Функция из строки собираем числа (подготовка к сложению)
 def summ_string_integer(text, text1):
     summ = []
-    my_string = (text[text.find('>') +2 : -text.find('=') - 3]).split(sep=' + ')
-    my_string1 = (text1[text1.find('>') +2 : -text1.find('=') - 3]).split(sep=' + ')
+
+    my_string = (text[text.find('>') +2 : text.find('= 0') - 1]).split(sep=' + ')
+    my_string1 = (text1[text1.find('>') +2 : text1.find('= 0') - 1]).split(sep=' + ')
+
     for i in range(len(my_string)-1):
         my_string[i] = my_string[i][:my_string[i].find('*')]
 
@@ -109,17 +111,16 @@ def summ_string_integer(text, text1):
 
     my_string_revers = my_string[::-1]
     my_string1_revers = my_string1[::-1]
-
-    if len(my_string_revers) > len(my_string1_revers):
+    
+    if len(my_string_revers) >= len(my_string1_revers):
         for i in range(len(my_string_revers) - len(my_string1_revers)):
             my_string1_revers.append('0')
     else:
         for i in range(len(my_string1_revers) - len(my_string_revers)):
             my_string_revers.append('0')
-
     my_int = [int(x) for x in my_string_revers]
     my_int1 = [int(y) for y in my_string1_revers]
-    
+
     if len(my_int) > len(my_int1):
         len_max = len(my_int)
     else:
