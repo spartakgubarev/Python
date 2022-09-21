@@ -97,7 +97,7 @@
 
 # data = map(int, '1 2 3 23 12 12'.split())
 
-# for e in data: 
+# for e in data:
 #     print(e*10)
 
 
@@ -129,9 +129,28 @@
 
 
 # enumerate ******************
-users = ['user1', 'user2', 'user3', 'user4', 'user5']
-ids = [4, 5, 9, 14, 7]
-salary = [111, 222, 333]
+# users = ['user1', 'user2', 'user3', 'user4', 'user5']
+# ids = [4, 5, 9, 14, 7]
+# salary = [111, 222, 333]
 
-data = list(enumerate(users))
+# data = list(enumerate(users))
+# print(data)
+
+# *************** УКОРОТИТЬ КОД
+# Есть список 1 2 3 5 8 15 23 38, Получить: # [(2, 4), (8, 64), (38, 144)]
+path = 'G:/Учеба/Разработчик/repo/Python/Lecture03/text.txt'
+f = open(path, 'r')
+data = f.read() + ' '
 print(data)
+f.close()
+
+numbers = []
+while data != '':
+    space_pos = data.index(' ')
+    numbers.append(int(data[:space_pos]))
+    data = data[space_pos + 1:]
+
+out = filter(lambda e: not e % 2, numbers)
+out = list(map(lambda x: (x, x**2), out))
+
+print(out)
