@@ -36,6 +36,7 @@
 # def f(x):
 #     return x**3
 
+# # List Comprehension# # List Comprehension# # List Comprehension# # List Comprehension
 # list = [f(i) for i in range(1, 21) if i % 2 == 0] # списки
 # print(list)
 
