@@ -23,21 +23,21 @@
 # 2. Дан список чисел. Создайте список, в который попадают числа, описываемые
 # возрастающую последовательность. Порядок элементов менять нельзя.
 # Пример: [1, 5, 2, 3, 4, 6, 1, 7] => [1, 5, 6, 7] и т.д.
-path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task02.txt'
-file = open(path, 'r')
-data = file.read()
-file.close()
+# path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task02.txt'
+# file = open(path, 'r')
+# data = file.read()
+# file.close()
 
-numbers = data.split()
-numbers = [int(x) for x in numbers]
-list = [numbers[0]]
-find = numbers[0]
-for i in numbers:
-    if find < i:
-        find = i
-        list.append(find)
+# numbers = data.split()
+# numbers = [int(x) for x in numbers]
+# list = [numbers[0]]
+# find = numbers[0]
+# for i in numbers:
+#     if find < i:
+#         find = i
+#         list.append(find)
 
-print(f'{numbers} => {list}')
+# print(f'{numbers} => {list}')
 
 
 # **********************
