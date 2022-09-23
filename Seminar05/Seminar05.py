@@ -43,16 +43,26 @@
 # **********************
 # 3. Напишите программу, удалающую из текста все слова, содержащие "абв".
 # Пример: 'Мы неабв очень любим Питон иабв Джавуабв!' => 'Мы очень любим Питон'
-path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task03.txt'
+# path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task03.txt'
+# file = open(path, 'r')
+# data = file.read()
+# file.close()
+
+# text = data.split()
+# list = []
+# find_text = 'абв'
+# for i in text:
+#     if 'абв' not in i:
+#         list.append(i)
+# list1 = ' '.join(list)
+# print(f'{data} => {list1}')
+
+# ******************* UPGRATE TASK 01
+path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/text.txt'
 file = open(path, 'r')
 data = file.read()
 file.close()
 
-text = data.split()
-list = []
-find_text = 'абв'
-for i in text:
-    if 'абв' not in i:
-        list.append(i)
-list1 = ' '.join(list)
-print(f'{data} => {list1}')
+numbers = list(map(int, data.split()))
+x = [x+1 for x in range(1, len(numbers)) if numbers[x] != numbers[x-1]+1]
+print(f'{numbers} --> пропущено число {x}')
