@@ -91,12 +91,14 @@ def open_files(path_file):
     file.close()
     return data
 
+def find_numbers(str_txt, find_txt):
+    text = str_txt.split()
+    list = [i for i in text if find_txt not in i]
+    return ' '.join(list)
+
 path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task03.txt'
 data = open_files(path)
-
-text = data.split()
 find_text = 'абв'
-list = [i for i in text if find_text not in i]
-list1 = ' '.join(list)
 
-print(f'{data} => {list1}')
+list = find_numbers(data, find_text)
+print(f'{data} => {list}')
