@@ -1,30 +1,62 @@
 #********************* 1. Напишите программу, удаляющую из текста все слова, содержание "абв".
-def open_files(path_file):
-    with open(path_file, 'r') as data:
-        data = data.read()
-    return data
+# def open_files(path_file):
+#     with open(path_file, 'r') as data:
+#         data = data.read()
+#     return data
 
-def find_numbers(str_txt, find_txt):
-    list = filter(lambda x: not find_txt in x, str_txt.split())
-    return ' '.join(list)
+# def find_numbers(str_txt, find_txt):
+#     list = filter(lambda x: not find_txt in x, str_txt.split())
+#     return ' '.join(list)
 
-path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_HomeWork01.txt'
-data = open_files(path)
-find_text = 'абв'
+# path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_HomeWork01.txt'
+# data = open_files(path)
+# find_text = 'абв'
 
-list = find_numbers(data, find_text)
-print(f'{data} => {list}')
+# list = find_numbers(data, find_text)
+# print(f'{data} => {list}')
 
 
 #********************* 2. Создайте программу для игры с конфетами человек против человека.
-#     Условие задачи: На столе лежит 2021 конфета.
-#     Играют два игрока делая ход друг после друга.
-#     Первый ход определяется жеребьёвкой.
-#     За один ходи можно забрать не более чем 28 конфет.
-#     Все конфеты оппонента достаются сделавшему последний ход.
-#     Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
-#         а) Добавьте игру противо бота
-#         б) подумайте как наделить бота "интеллектом"
+# Условие задачи: На столе лежит 2021 конфета.
+# Играют два игрока делая ход друг после друга.
+# Первый ход определяется жеребьёвкой.
+# За один ход можно забрать не более чем 28 конфет.
+# Все конфеты оппонента достаются сделавшему последний ход.
+# Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
+#     а) Добавьте игру против бота
+#     б) подумайте как наделить бота "интеллектом"
+import random
+
+
+def number_check():
+    while True:
+        try:
+            number = int(input('сколько конфет забираете? '))
+        except ValueError:
+            print("Вы ввели не число.")
+        else:
+            return number
+
+print('На столе лежит 2021 конфета. Играют двое. Очередность определяется случайно.')
+print('За один ход можно взять от 1-28 конфет. Выиграл тот, кто сделал последний ход.')
+rnd = random.randint(1, 2)
+count = 2021
+player1 = input('Введите имя первого игра: ')
+player2 = input('Введите имя второго игра: ')
+if rnd == 1:
+    player = player1
+    print(f'Ходит {player1}')
+else:
+    player = player2
+    print(f'Ходит {player2}')
+
+while count > 0:
+    number = number_check()
+    print(number)
+    
+    count -= number
+    print(count)
+
 
 
 #********************* 3. Создайте программу для игры в "Крестики-нолики".
