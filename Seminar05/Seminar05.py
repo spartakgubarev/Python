@@ -93,7 +93,8 @@ def open_files(path_file):
 
 def find_numbers(str_txt, find_txt):
     text = str_txt.split()
-    list = [i for i in text if find_txt not in i]
+    print(text)
+    list = filter(lambda x: not find_txt in x, text)
     return ' '.join(list)
 
 path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task03.txt'
