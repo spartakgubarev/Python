@@ -83,7 +83,7 @@
 
 # print(f'{numbers} => {list}')
 
-
+# ******************* UPGRATE TASK 03
 # Пример: 'Мы неабв очень любим Питон иабв Джавуабв!' => 'Мы очень любим Питон'
 def open_files(path_file):
     file = open(path_file, 'r')
