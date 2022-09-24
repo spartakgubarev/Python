@@ -58,11 +58,27 @@
 # print(f'{data} => {list1}')
 
 # ******************* UPGRATE TASK 01
-path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/text.txt'
+# path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/text.txt'
+# file = open(path, 'r')
+# data = file.read()
+# file.close()
+
+# numbers = list(map(int, data.split()))
+# x = [x+1 for x in range(1, len(numbers)) if numbers[x] != numbers[x-1]+1]
+# print(f'{numbers} --> пропущено число {x}')
+
+# ******************* UPGRATE TASK 02
+# Пример: [1, 5, 2, 3, 4, 6, 1, 7] => [1, 5, 6, 7] и т.д.
+
+path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task02.txt'
 file = open(path, 'r')
 data = file.read()
 file.close()
 
-numbers = list(map(int, data.split()))
-x = [x+1 for x in range(1, len(numbers)) if numbers[x] != numbers[x-1]+1]
-print(f'{numbers} --> пропущено число {x}')
+numbers = [int(x) for x in data.split()]
+
+find = numbers[0]
+
+list = [find := i for i in numbers if find < i + 1]
+
+print(f'{numbers} => {list}')
