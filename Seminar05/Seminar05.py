@@ -70,15 +70,33 @@
 # ******************* UPGRATE TASK 02
 # Пример: [1, 5, 2, 3, 4, 6, 1, 7] => [1, 5, 6, 7] и т.д.
 
-path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task02.txt'
-file = open(path, 'r')
-data = file.read()
-file.close()
+# path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task02.txt'
+# file = open(path, 'r')
+# data = file.read()
+# file.close()
 
-numbers = [int(x) for x in data.split()]
+# numbers = [int(x) for x in data.split()]
 
-find = numbers[0]
+# find = numbers[0]
 
-list = [find := i for i in numbers if find < i + 1]
+# list = [find := i for i in numbers if find < i + 1]
 
-print(f'{numbers} => {list}')
+# print(f'{numbers} => {list}')
+
+
+# Пример: 'Мы неабв очень любим Питон иабв Джавуабв!' => 'Мы очень любим Питон'
+def open_files(path_file):
+    file = open(path_file, 'r')
+    data = file.read()
+    file.close()
+    return data
+
+path = 'G:/Учеба/Разработчик/repo/Python/Seminar05/Text_Task03.txt'
+data = open_files(path)
+
+text = data.split()
+find_text = 'абв'
+list = [i for i in text if find_text not in i]
+list1 = ' '.join(list)
+
+print(f'{data} => {list1}')
