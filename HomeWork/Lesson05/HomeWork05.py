@@ -27,15 +27,19 @@
 #     б) подумайте как наделить бота "интеллектом"
 import random
 
-
 def number_check():
     while True:
-        try:
-            number = int(input('сколько конфет забираете? '))
-        except ValueError:
-            print("Вы ввели не число.")
+        num = input('Сколько конфет заберете? ')
+        if num.isdigit():
+            num = int(num)
+            if num >= 1 and num <= 28:
+                return num
+            else:
+                print('Внимательнее, от 1 по 28')
+                False
         else:
-            return number
+            print('Внимательнее, Вы ввели не число.')
+            False
 
 print('На столе лежит 2021 конфета. Играют двое. Очередность определяется случайно.')
 print('За один ход можно взять от 1-28 конфет. Выиграл тот, кто сделал последний ход.')
@@ -44,19 +48,16 @@ count = 2021
 player1 = input('Введите имя первого игра: ')
 player2 = input('Введите имя второго игра: ')
 if rnd == 1:
-    player = player1
-    print(f'Ходит {player1}')
+    player = True 
 else:
-    player = player2
-    print(f'Ходит {player2}')
+    player = False
 
 while count > 0:
-    number = number_check()
+    number = int(number_check())
     print(number)
     
     count -= number
     print(count)
-
 
 
 #********************* 3. Создайте программу для игры в "Крестики-нолики".
