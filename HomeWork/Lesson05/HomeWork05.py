@@ -41,8 +41,10 @@ def number_check():
         else:
             print('Внимательнее, Вы ввели не число.')
             False
+
+
 def mode_player():
-    list =[]
+    list = []
     num = int(input('Введите вариант игры: '))
     player1 = input('Введите имя игрока: ')
     if num == 1:
@@ -52,17 +54,44 @@ def mode_player():
     elif num == 3:
         player2 = 'computer_expert'
     rnd = random.randint(1, 2)
-    list = [player1, player2, num]
     if rnd == 1:
+        list = [player1, player2, num]
         return list
     else:
+        list = [player2, player1, num]
         return list
+
+
 def choice_move(mode):
     if mode[2] == 1:
         number = number_check()
+    elif mode[2] == 2:
+        if mode[0] != 'computer':
+            number = number_check()
+        else:
+            if count < 29:
+                number = count
+            else:
+                number = random.randint(1, 28)
+            print(number)
+    elif mode[2] == 3:
+        if mode[0] != 'computer_expert':
+            number = number_check()
+        else:
+            number = expert(count)
+            print(number)
     return number
 
-count = 100
+
+def expert(count):
+    if 0 < (count % 29) < 29:
+        _temp = count % 29
+        return _temp
+    _temp = random.randint(1, 28)
+    return _temp
+
+
+count = 2021
 
 print(
     f'На столе лежит {count} конфет(а). Играют двое. Очередность определяется случайно.')
@@ -70,7 +99,6 @@ print('За один ход можно взять от 1-28 конфет. Выи
 print('Как играем?\n1 - Человек-человек\n2 - Человек-компьютер\n3 - Человек-копьютер(профи)')
 
 mode = mode_player()
-print(mode)
 
 while count > 0:
     print(f'Осталось {count} конфет. Ходит {mode[0]}, сколько забираете: ')
