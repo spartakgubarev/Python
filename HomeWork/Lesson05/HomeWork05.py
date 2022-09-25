@@ -41,36 +41,45 @@ def number_check():
         else:
             print('Внимательнее, Вы ввели не число.')
             False
-
-
-def player_choice(players):
-    if players == player1:
-        players = player2
+def mode_player():
+    list =[]
+    num = int(input('Введите вариант игры: '))
+    player1 = input('Введите имя игрока: ')
+    if num == 1:
+        player2 = input('Введите имя второго игрока: ')
+    elif num == 2:
+        player2 = 'computer'
+    elif num == 3:
+        player2 = 'computer_expert'
+    rnd = random.randint(1, 2)
+    list = [player1, player2, num]
+    if rnd == 1:
+        return list
     else:
-        players = player1
-    return players
+        return list
+def choice_move(mode):
+    if mode[2] == 1:
+        number = number_check()
+    return number
 
+count = 100
 
-rnd = random.randint(1, 2)
-count = 2021
 print(
     f'На столе лежит {count} конфет(а). Играют двое. Очередность определяется случайно.')
 print('За один ход можно взять от 1-28 конфет. Выиграл тот, кто сделал последний ход.')
-player1 = input('Введите имя первого игра: ')
-player2 = input('Введите имя второго игра: ')
-if rnd == 1:
-    player = player1
-else:
-    player = player2
+print('Как играем?\n1 - Человек-человек\n2 - Человек-компьютер\n3 - Человек-копьютер(профи)')
+
+mode = mode_player()
+print(mode)
 
 while count > 0:
-    print(
-        f'Осталось {count} конфет(а). Ходит {player}, сколько конфет заберете? ', end=' ')
-    player = player_choice(player)
-    number = number_check()
+    print(f'Осталось {count} конфет. Ходит {mode[0]}, сколько забираете: ')
+    number = choice_move(mode)
+    temp = mode[0]
+    mode[0] = mode[1]
+    mode[1] = temp
     count -= number
-player = player_choice(player)
-print(f'Поздравляем {player}, Вы выиграли!!!')
+print(f'Выиграл {mode[1]}. Поздравляем!!!')
 
 
 # ********************* 3. Создайте программу для игры в "Крестики-нолики".
