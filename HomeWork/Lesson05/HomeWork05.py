@@ -111,8 +111,21 @@
 
 
 # ********************* 3. Создайте программу для игры в "Крестики-нолики".
+from tkinter import *
 
 
+window = Tk()
+window.title('Добро пожаловать в "крестики-нолики"')
+window.geometry('400x250')
+# lbl = Label(window, text="Привет", font=("Arial Bold", 50))
+# lbl.grid(column=0, row=0)
+for i in range(1,4):
+    for j in range(1, 4):
+
+        Button(window, text="", width=4).grid(column=j, row=i)
+
+
+window.mainloop()
 
 
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
