@@ -114,18 +114,143 @@
 from tkinter import *
 
 
+def examination():
+    if btn1['text'] == 'X' and btn2['text'] == 'X' and btn3['text'] == 'X' or (
+        btn1['text'] == 'O' and btn2['text'] == 'O' and btn3['text'] == 'O' or
+        btn4['text'] == 'X' and btn5['text'] == 'X' and btn6['text'] == 'X' or
+        btn4['text'] == 'O' and btn5['text'] == 'O' and btn6['text'] == 'O' or
+        btn7['text'] == 'X' and btn8['text'] == 'X' and btn9['text'] == 'X' or
+        btn7['text'] == 'O' and btn8['text'] == 'O' and btn9['text'] == 'O' or
+        btn1['text'] == 'X' and btn4['text'] == 'X' and btn7['text'] == 'X' or
+        btn1['text'] == 'O' and btn4['text'] == 'O' and btn7['text'] == 'O' or
+        btn2['text'] == 'X' and btn5['text'] == 'X' and btn8['text'] == 'X' or
+        btn2['text'] == 'O' and btn5['text'] == 'O' and btn8['text'] == 'O' or
+        btn3['text'] == 'X' and btn6['text'] == 'X' and btn9['text'] == 'X' or
+        btn3['text'] == 'O' and btn6['text'] == 'O' and btn9['text'] == 'O' or
+        btn1['text'] == 'X' and btn5['text'] == 'X' and btn9['text'] == 'X' or
+        btn1['text'] == 'O' and btn5['text'] == 'O' and btn9['text'] == 'O' or
+        btn3['text'] == 'X' and btn5['text'] == 'X' and btn7['text'] == 'X' or
+        btn3['text'] == 'O' and btn5['text'] == 'O' and btn7['text'] == 'O'
+        ):
+        print('Победа')
+
+
+
+def clicked(btn):  
+    global count
+
+    if count % 2 ==0:
+        btn['text'] = 'X'
+    else:
+        btn['text'] = 'O'
+    btn["state"] = DISABLED
+    examination()
+    count += 1
+    
+
+count = 0
+
 window = Tk()
-window.title('Добро пожаловать в "крестики-нолики"')
+window.title('"крестики-нолики"')
 window.geometry('400x250')
-# lbl = Label(window, text="Привет", font=("Arial Bold", 50))
-# lbl.grid(column=0, row=0)
-for i in range(1,4):
-    for j in range(1, 4):
 
-        Button(window, text="", width=4).grid(column=j, row=i)
+btn1 = Button(window, text='',command=lambda: clicked(btn1), width=4)
+btn1.grid(column=0, row=0)
 
+btn2 = Button(window, text='',command=lambda: clicked(btn2), width=4)
+btn2.grid(column=0, row=1)
+
+btn3 = Button(window, text='',command=lambda: clicked(btn3), width=4)
+btn3.grid(column=0, row=2)
+
+btn4 = Button(window, text='',command=lambda: clicked(btn4), width=4)
+btn4.grid(column=1, row=0)
+
+btn5 = Button(window, text='',command=lambda: clicked(btn5), width=4)
+btn5.grid(column=1, row=1)
+
+btn6 = Button(window, text='',command=lambda: clicked(btn6), width=4)
+btn6.grid(column=1, row=2)
+
+btn7 = Button(window, text='',command=lambda: clicked(btn7), width=4)
+btn7.grid(column=2, row=0)
+
+btn8 = Button(window, text='',command=lambda: clicked(btn8), width=4)
+btn8.grid(column=2, row=1)
+
+btn9 = Button(window, text='',command=lambda: clicked(btn9), width=4)
+btn9.grid(column=2, row=2)
 
 window.mainloop()
+
+# from tkinter import *
+
+# tkWindow = Tk()  
+# tkWindow.geometry('400x150')  
+# tkWindow.title('PythonExamples.org - Tkinter Example')
+
+# def toggleText(button1):  
+# 	if(button1['text']=='Submit'):
+# 		button1['text']='Submitted'
+# 	else:
+# 		button1['text']='Submit'
+
+# button = Button(tkWindow,
+# 	text = 'Submit',
+# 	command = lambda: toggleText(button))  
+# button.pack()  
+# button1 = Button(tkWindow,
+# 	text = 'Submit',
+# 	command = lambda: toggleText(button1))  
+# button1.pack()  
+# tkWindow.mainloop()
+
+
+# from tkinter import *
+
+# tkWindow = Tk()  
+# tkWindow.geometry('400x150')  
+# tkWindow.title('PythonExamples.org - Tkinter Example')
+
+# def changeText():  
+#     button['text'] = 'Submitted'
+
+# button = Button(tkWindow,
+# 	text = 'Submit',
+# 	command = changeText)  
+# button.pack()  
+  
+# tkWindow.mainloop()
+
+
+# from tkinter import *
+# import tkinter
+# import tkinter.messagebox
+
+# root = Tk()
+
+
+# def fun(arg):
+#     if arg == 1:
+#         tkinter.messagebox.showinfo("button 1", "button 1 used")
+#     elif arg == 2:
+#         tkinter.messagebox.showinfo("button 2", "button 2 used")
+#     elif arg == 3:
+#         tkinter.messagebox.showinfo("button 3", "button 3 used")
+#     elif arg == 4:
+#         tkinter.messagebox.showinfo("button 4", "button 4 used")
+
+
+# b1 = Button(root, text="Quit1", command=lambda: fun(1))
+# b1.pack()
+# b2 = Button(root, text="Quit2", command=lambda: fun(2))
+# b2.pack()
+# b3 = Button(root, text="Quit3", command=lambda: fun(3))
+# b3.pack()
+# b4 = Button(root, text="Quit4", command=lambda: fun(4))
+# b4.pack()
+
+# root.mainloop()
 
 
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
