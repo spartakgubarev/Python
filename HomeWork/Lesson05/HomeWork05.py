@@ -111,181 +111,49 @@
 
 
 # ********************* 3. Создайте программу для игры в "Крестики-нолики".
-# from tkinter import *
-
-
-# def examination():
-#     if btn1['text'] == 'X' and btn2['text'] == 'X' and btn3['text'] == 'X' or (
-#         btn1['text'] == 'O' and btn2['text'] == 'O' and btn3['text'] == 'O' or
-#         btn4['text'] == 'X' and btn5['text'] == 'X' and btn6['text'] == 'X' or
-#         btn4['text'] == 'O' and btn5['text'] == 'O' and btn6['text'] == 'O' or
-#         btn7['text'] == 'X' and btn8['text'] == 'X' and btn9['text'] == 'X' or
-#         btn7['text'] == 'O' and btn8['text'] == 'O' and btn9['text'] == 'O' or
-#         btn1['text'] == 'X' and btn4['text'] == 'X' and btn7['text'] == 'X' or
-#         btn1['text'] == 'O' and btn4['text'] == 'O' and btn7['text'] == 'O' or
-#         btn2['text'] == 'X' and btn5['text'] == 'X' and btn8['text'] == 'X' or
-#         btn2['text'] == 'O' and btn5['text'] == 'O' and btn8['text'] == 'O' or
-#         btn3['text'] == 'X' and btn6['text'] == 'X' and btn9['text'] == 'X' or
-#         btn3['text'] == 'O' and btn6['text'] == 'O' and btn9['text'] == 'O' or
-#         btn1['text'] == 'X' and btn5['text'] == 'X' and btn9['text'] == 'X' or
-#         btn1['text'] == 'O' and btn5['text'] == 'O' and btn9['text'] == 'O' or
-#         btn3['text'] == 'X' and btn5['text'] == 'X' and btn7['text'] == 'X' or
-#         btn3['text'] == 'O' and btn5['text'] == 'O' and btn7['text'] == 'O'
-#         ):
-#         print('Победа')
-
-
-
-# def clicked(btn):  
-#     global count
-
-#     if count % 2 ==0:
-#         btn['text'] = 'X'
-#     else:
-#         btn['text'] = 'O'
-#     btn["state"] = DISABLED
-#     examination()
-#     count += 1
-    
-
-# count = 0
-
-# window = Tk()
-# window.title('"крестики-нолики"')
-# window.geometry('400x250')
-
-# btn1 = Button(window, text='',command=lambda: clicked(btn1), width=4)
-# btn1.grid(column=0, row=0)
-
-# btn2 = Button(window, text='',command=lambda: clicked(btn2), width=4)
-# btn2.grid(column=0, row=1)
-
-# btn3 = Button(window, text='',command=lambda: clicked(btn3), width=4)
-# btn3.grid(column=0, row=2)
-
-# btn4 = Button(window, text='',command=lambda: clicked(btn4), width=4)
-# btn4.grid(column=1, row=0)
-
-# btn5 = Button(window, text='',command=lambda: clicked(btn5), width=4)
-# btn5.grid(column=1, row=1)
-
-# btn6 = Button(window, text='',command=lambda: clicked(btn6), width=4)
-# btn6.grid(column=1, row=2)
-
-# btn7 = Button(window, text='',command=lambda: clicked(btn7), width=4)
-# btn7.grid(column=2, row=0)
-
-# btn8 = Button(window, text='',command=lambda: clicked(btn8), width=4)
-# btn8.grid(column=2, row=1)
-
-# btn9 = Button(window, text='',command=lambda: clicked(btn9), width=4)
-# btn9.grid(column=2, row=2)
-
-# window.mainloop()
-
-
-
-
-
 from tkinter import *
 
 
-# def examination():
-#     if btn1['text'] == 'X' and btn2['text'] == 'X' and btn3['text'] == 'X' or (
-#         btn1['text'] == 'O' and btn2['text'] == 'O' and btn3['text'] == 'O' or
-#         btn4['text'] == 'X' and btn5['text'] == 'X' and btn6['text'] == 'X' or
-#         btn4['text'] == 'O' and btn5['text'] == 'O' and btn6['text'] == 'O' or
-#         btn7['text'] == 'X' and btn8['text'] == 'X' and btn9['text'] == 'X' or
-#         btn7['text'] == 'O' and btn8['text'] == 'O' and btn9['text'] == 'O' or
-#         btn1['text'] == 'X' and btn4['text'] == 'X' and btn7['text'] == 'X' or
-#         btn1['text'] == 'O' and btn4['text'] == 'O' and btn7['text'] == 'O' or
-#         btn2['text'] == 'X' and btn5['text'] == 'X' and btn8['text'] == 'X' or
-#         btn2['text'] == 'O' and btn5['text'] == 'O' and btn8['text'] == 'O' or
-#         btn3['text'] == 'X' and btn6['text'] == 'X' and btn9['text'] == 'X' or
-#         btn3['text'] == 'O' and btn6['text'] == 'O' and btn9['text'] == 'O' or
-#         btn1['text'] == 'X' and btn5['text'] == 'X' and btn9['text'] == 'X' or
-#         btn1['text'] == 'O' and btn5['text'] == 'O' and btn9['text'] == 'O' or
-#         btn3['text'] == 'X' and btn5['text'] == 'X' and btn7['text'] == 'X' or
-#         btn3['text'] == 'O' and btn5['text'] == 'O' and btn7['text'] == 'O'
-#         ):
-#         print('Побед/а')
-
-
-
-def clicked(btn1, x, y):  
+def clicked(btn1, x, y):
     global count
-    print(btn1, x, y)
-    
-    if count % 2 ==0:
+    btn1["state"] = DISABLED
+    if count % 2 == 0:
         btn1['text'] = 'X'
     else:
         btn1['text'] = 'O'
     btn1["state"] = DISABLED
-    # examination()
-    btn1.grid(column=x, row=y)
     count += 1
+    a = btn1['text']
+    btn[x][y] = a
 
+    if btn[0][0] == a and btn[0][1] == a and btn[0][2] == a or (
+            btn[1][0] == a and btn[1][1] == a and btn[1][2] == a or
+            btn[2][0] == a and btn[2][1] == a and btn[2][2] == a or
+            btn[0][0] == a and btn[1][0] == a and btn[2][0] == a or
+            btn[0][1] == a and btn[1][1] == a and btn[2][1] == a or
+            btn[0][2] == a and btn[1][2] == a and btn[2][2] == a or
+            btn[0][0] == a and btn[1][1] == a and btn[2][2] == a or
+            btn[0][2] == a and btn[1][1] == a and btn[2][0] == a):
+        print(f'Победили "{a}", УРААААА!!!!')
+        for i in range(3):
+            for j in range(3):
+                if btn[i][j] != 'X' and btn[i][j] != 'O':
+                    btn[i][j]['state'] = DISABLED
+
+
+btn = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 count = 0
-btn = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
-# x = [0, 1, 2]
-# y = [0, 1, 2]
-
 window = Tk()
 window.title('"крестики-нолики"')
 window.geometry('400x250')
 
-
 for i in range(3):
     for j in range(3):
-        btn[i][j] = Button(window, text='', command=lambda x=i, y=j: clicked(btn[x][y], x, y), width=4)
-        btn[i][j].grid(column=i, row=j)
-        print(btn[i][j])
-# btn = Button(window, text='', command=lambda x=i, y=j: clicked(btn, x, y), width=4)
-# btn.grid(column=x, row=y)
-
-        # btn = Button(window, text='', command=lambda x=i, y=j: clicked(btn, x, y), width=4)
-
-# Button(window, text='', command=lambda: clicked(), width=4)
-
-# btn = Button(window, text='', command=lambda: clicked(btn), width=4)
-# print(btn)
-# btn1.grid(column=0, row=0)
-
-
-# btn1.grid(column=0, row=1)
-# btn1.grid(column=0, row=2)
-# btn1.grid(column=1, row=0)
-
-# btn = Button(window, text='',command=lambda: clicked(btn), width=4)
-# btn1 = Button(window, text='',command=lambda: clicked(btn1), width=4)
-# btn1.grid(column=0, row=0)
-
-# btn2 = Button(window, text='',command=lambda: clicked(btn2), width=4)
-# btn2.grid(column=0, row=1)
-
-# btn3 = Button(window, text='',command=lambda: clicked(btn3), width=4)
-# btn3.grid(column=0, row=2)
-
-# btn4 = Button(window, text='',command=lambda: clicked(btn4), width=4)
-# btn4.grid(column=1, row=0)
-
-# btn5 = Button(window, text='',command=lambda: clicked(btn5), width=4)
-# btn5.grid(column=1, row=1)
-
-# btn6 = Button(window, text='',command=lambda: clicked(btn6), width=4)
-# btn6.grid(column=1, row=2)
-
-# btn7 = Button(window, text='',command=lambda: clicked(btn7), width=4)
-# btn7.grid(column=2, row=0)
-
-# btn8 = Button(window, text='',command=lambda: clicked(btn8), width=4)
-# btn8.grid(column=2, row=1)
-
-# btn9 = Button(window, text='',command=lambda: clicked(btn9), width=4)
-# btn9.grid(column=2, row=2)
+        btn[i][j] = Button(window, text='', command=lambda x=i,
+                           y=j: clicked(btn[x][y], x, y), width=4)
+        btn[i][j].grid(column=j, row=i)
 
 window.mainloop()
-
 
 
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
