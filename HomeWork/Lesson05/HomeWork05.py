@@ -1,6 +1,6 @@
 # ********************* 1. Напишите программу, удаляющую из текста все слова, содержание "абв".
 # def open_files(path_file):
-#     with open(path_file, 'r') as data:
+#     with open(path_file, 'r'as data:
 #         data = data.read()
 #     return data
 
@@ -23,7 +23,7 @@
 # За один ход можно забрать не более чем 28 конфет.
 # Все конфеты оппонента достаются сделавшему последний ход.
 # Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
-#     а) Добавьте игру против бота
+#     аДобавьте игру против бота
 #     б) подумайте как наделить бота "интеллектом"
 # import random
 
@@ -84,7 +84,7 @@
 
 
 # def expert(count):
-#     if 0 < (count % 29) < 29:
+#     if 0 < (count % 29< 29:
 #         _temp = count % 29
 #         return _temp
 #     _temp = random.randint(1, 28)
@@ -159,3 +159,38 @@
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
 # aaaffffeee -> a3f4e3
+def open_files(path_files):
+    text = ''
+    with open(path_files, 'r') as data:
+        for line in data:
+            text += line
+    return text
+
+
+def compression(textzip):
+    str_text = ''
+    count = 1
+    for i in range(1, len(textzip)):
+        if textzip[i-1] == textzip[i]:
+            count += 1
+        else:
+            if count > 1:
+                str_text += textzip[i-1] + str(count)
+            count = 1
+    return str_text
+
+
+path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_homewor_04.txt'
+text = open_files(path)
+# text = 'aaafffffffggggg gfdgdfg dfgdfhgfghfghfdgg123312311hdfhdfhdfgh hfhfg '
+text_zip = compression(text)
+# print(text_zip)
+
+f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt', 'w')
+f.write(text_zip)
+f.close()
+
+
+
+
+
