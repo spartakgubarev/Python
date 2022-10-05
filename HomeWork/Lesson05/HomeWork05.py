@@ -158,22 +158,16 @@
 
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
-# aaaffffeee -> a3f4e3
 def compression(textzip):
-    # temp = 0
-    # i = 1
-    count = 1
+    i = 0
     str_text = ''
-    for i in range(len(textzip)-1):
-        if textzip[i] == textzip[i+1]:
+    while i < len(textzip)-1:
+        count = 1
+        while i + 1 < len(textzip) and textzip[i] == textzip[i+1]:
             count += 1
-        # print(i, end=' ')
+            i += 1
         str_text += textzip[i] + str(count)
-        count += 1
-    
-    print(textzip)
-    print(str_text)
-
+        i += 1
     return str_text + '\n'
 
 
