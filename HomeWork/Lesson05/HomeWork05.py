@@ -160,50 +160,35 @@
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
 # aaaffffeee -> a3f4e3
 def compression(textzip):
-    temp = 0
-    i = 1
+    # temp = 0
+    # i = 1
     count = 1
     str_text = ''
-    bbb = 1
-    while bbb < len(textzip):
-        if textzip[i] == textzip[temp]:
+    for i in range(len(textzip)-1):
+        if textzip[i] == textzip[i+1]:
             count += 1
-        else:
-            str_text += textzip[temp] + str(count)
-            count = 1
-        temp = i
-        i += 1
-        bbb += 1
+        # print(i, end=' ')
+        str_text += textzip[i] + str(count)
+        count += 1
+    
+    print(textzip)
+    print(str_text)
+
     return str_text + '\n'
+
 
 def open_files(path_files):
     text = ''
     with open(path_files, 'r') as data:
         for line in data:
             text += compression(line)
-    
+
     return text
-
-# def generate(txt):
-#     last = ''
-#     i = 0
-#     yield 
-
 
 
 path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_homewor_04.txt'
 text = open_files(path)
-# text = 'aabbссс   11222333 ываыва ываваывавыва ыва ываываываыва\nтываыва ываываы ыаыв ываыва\nsdff w eewsdfsdsdfsdf'
-
-# text_zip = compression(text)
-# print(text_zip)
-
 
 f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt', 'w')
 f.write(text)
 f.close()
-
-
-
-
-
