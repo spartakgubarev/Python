@@ -11,9 +11,21 @@ def create(device = 1):
     xml += '    <pressure units = "mmHg">{}</pressure>\n'\
         .format(pressure_view(device))
     xml += '</hml>'
-    
 
-    with open('index1.xml', 'w') as page:
+
+def new_create(data, device = 1):
+    t, p, w = data
+    t = t * 1.8 + 32
+    xml = '<xml>\n'
+    xml += '    <temperature units = "f">{}</temperature>\n'\
+        .format(t)
+    xml += '    <wind_speed_view units = "m/s">{}</wind_speed_view>\n'\
+        .format(w)
+    xml += '    <pressure units = "mmHg">{}</pressure>\n'\
+        .format(p)
+    xml += '</hml>'
+
+    with open('new_index1.xml', 'w') as page:
         page.write(xml)
 
-    return xml
+    return data
