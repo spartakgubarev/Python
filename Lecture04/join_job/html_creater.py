@@ -46,7 +46,7 @@ def create(device = 1):
         .format(wind_speed_view(device))
     xml += '    <pressure units = "mmHg">{}</pressure>\n'\
         .format(pressure_view(device))
-    xml += '</hml>'
+    xml += '</xml>'
 
 
 def new_create(data, device = 1):
@@ -58,7 +58,7 @@ def new_create(data, device = 1):
         .format(w)
     xml += '    <pressure units = "mmHg">{}</pressure>\n'\
         .format(p)
-    xml += '</hml>'
+    xml += '</xml>'
 
     with open('new_index.xml', 'w') as page:
         page.write(xml)
