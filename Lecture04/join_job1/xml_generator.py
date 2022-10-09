@@ -22,10 +22,11 @@ def create(device=1):
 def new_create(data):
     t, p, w = data
     t = t * 1.8 + 32
+    w = w * 2.2369362920544
     xml = '<xml>\n'
     xml += '    <temperature units = "f">{}</temperature>\n'\
         .format(t)
-    xml += '    <wind_speed_view units = "m/s">{}</wind_speed_view>\n'\
+    xml += '    <wind_speed_view units = "mili/s">{}</wind_speed_view>\n'\
         .format(w)
     xml += '    <pressure units = "mmHg">{}</pressure>\n'\
         .format(p)
