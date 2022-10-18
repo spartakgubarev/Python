@@ -1,6 +1,6 @@
 # ********************* 1. Напишите программу, удаляющую из текста все слова, содержание "абв".
 # def open_files(path_file):
-#     with open(path_file, 'r'as data:
+#     with open(path_file, 'r') as data:
 #         data = data.read()
 #     return data
 
@@ -84,7 +84,7 @@
 
 
 # def expert(count):
-#     if 0 < (count % 29< 29:
+#     if 0 < count % 29< 29:
 #         _temp = count % 29
 #         return _temp
 #     _temp = random.randint(1, 28)
@@ -158,62 +158,45 @@
 
 # ********************* 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
-# ********************* Сжатие
-def compression(textzip):
-    i = 0
-    str_text = ''
-    while i < len(textzip)-1:
-        count = 1
-        while i + 1 < len(textzip) and textzip[i] == textzip[i+1]:
-            count += 1
-            i += 1
-        str_text += textzip[i] + str(count)
-        i += 1
-    return str_text + '\n'
+# def compression(textzip, key):
+#     i = 0
+#     str_text = ''
+#     if key == 1:
+#         while i < len(textzip)-1:
+#             count = 1
+#             while i + 1 < len(textzip) and textzip[i] == textzip[i+1]:
+#                 count += 1
+#                 i += 1
+#             str_text += textzip[i] + str(count)
+#             i += 1
+#         return str_text + '\n'
+#     elif key == 2:
+#         while i + 1 < len(textzip):
+#             str_text += textzip[i] * int(textzip[i+1])
+#             i += 2
+#         return str_text + '\n'
 
 
-def open_files(path_files):
-    text = ''
-    with open(path_files, 'r') as data:
-        for line in data:
-            text += compression(line)
-
-    return text
-
-
-path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_homewor_04.txt'
-text = open_files(path)
-
-f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt', 'w')
-f.write(text)
-f.close()
-
-# ********************* Распаковка
+# def open_files(path_files, key):
+#     text = ''
+#     with open(path_files, 'r') as data:
+#         for line in data:
+#             text += compression(line, key)
+#     return text
 
 
-def compression(textzip):
-    i = 0
-    str_text = ''
-    while i + 1 < len(textzip):  # and textzip[i] == textzip[i+1]:
-        # += 1
-        #i += 1
-        str_text += textzip[i] * int(textzip[i+1])
-        i += 2
-    return str_text + '\n'
+# # ********************* Сжатие
+# path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/Text_homewor_04.txt'
+# KEY = 1
+# text = open_files(path, KEY)
+# f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt', 'w')
+# f.write(text)
+# f.close()
 
-
-def open_files(path_files):
-    text = ''
-    with open(path_files, 'r') as data:
-        for line in data:
-            text += compression(line)
-
-    return text
-
-
-path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt'
-text = open_files(path)
-
-f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/unpacking.txt', 'w')
-f.write(text)
-f.close()
+# # ********************* Распаковка
+# path = 'G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/zip.txt'
+# KEY = 2
+# text = open_files(path, 2)
+# f = open('G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson05/unpacking.txt', 'w')
+# f.write(text)
+# f.close()
