@@ -1,0 +1,9 @@
+def equation(string, a, b):
+    if string == '+':
+        return a + b
+    elif string == '*':
+        return a * b
+    elif string == '/':
+        return a / b
+    elif string == '-':
+        return a - b
