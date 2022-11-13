@@ -11,7 +11,8 @@ def main():
 
         elif read_write == 1: # если значение 1, читаем файл
             data = gui.read_f()
-            
+            db.read_file(data)
+                        
         elif read_write == 3: # если значение 3, редактируем файл
             pass
         elif read_write == 4: # если значение 4, выход

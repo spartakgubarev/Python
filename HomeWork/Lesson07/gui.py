@@ -1,4 +1,4 @@
-
+import db
 
 def read_write():
     return int(input('Что делаем? (1 - читаем, 2 - записываем, 3 - изменяем, 4 - выход): '))
