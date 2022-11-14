@@ -17,12 +17,9 @@ def personal_data():
 
 # find text
 def search_value():
-    search = input('Введите иское значение:')
+    search = input('Введите иское значение: ')
     return search
-
 
 # show search       type list
 def print_search(list_data):
-    print(f'ИД      Имя     Фамилия     Дата рождения       Телефон     Описание')
-    for txt in list_data:
-        print(txt, sep='-')
+    print(f'\t{list_data[0]}\t{list_data[1]}\t{list_data[2]}\t{list_data[3]}\t{list_data[4]}')
