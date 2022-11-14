@@ -9,7 +9,7 @@ def main():
             data = gui.write_f()
             db.write_file(data)
 
-        elif read_write == 1: # если значение 1, читаем файл
+        elif read_write == 1: # если значение 1, поиск
             data = gui.read_f()
             db.read_file(data)
                         
