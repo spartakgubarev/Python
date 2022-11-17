@@ -1,9 +1,14 @@
 
+def file_path():
+    _path = input('Введите путь для сохранения: ')
+    _namefile = input('Введите название файла с расширение .csv:')
+    return _path + _namefile
+
 
 # what to do?
 def what_to_do():
     print('Телефонный справочник. Выберите действие: ')
-    value = input('1- добавить, 2 - искать, 3 - изменить, 4 - удалить, 5 - выход: ')
+    value = input('1- добавить, 2 - искать, 3 - удалить, 4 - выход: ')
     return value
 
 # data request
@@ -13,7 +18,7 @@ def personal_data():
     birth = input('Введите дату рождения: ')
     tel = input('Введите телефон формат(8-921-123-45-67): ')
     description = input('Введите описание: ')
-    return f_name, l_name, birth, tel, description
+    return [f_name, l_name, birth, tel, description]
 
 # find text
 def search_value():

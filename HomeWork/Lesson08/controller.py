@@ -2,21 +2,19 @@ import gui, db
 
 
 def main():
-    id = 0    
+    path = gui.file_path() 
     a = True
     while a:
-        # What to do? 1 - write, 2 - find, 3 - rewrite, 4 - delete, 5 - exit
         act = gui.what_to_do()
+        # What to do? 1 - write, 2 - find, 3 - delete, 4 - exit
         match act:
             case '1': # write
                 data = gui.personal_data()
-                db.f_write(data)
+                db.f_write(path, data)
             case '2': # find
                 find = gui.search_value()
-                db.f_find(find)
-            case '3': # rewrite
-                pass
-            case '4': # delete
-                pass
-            case '5': # exit
+                db.f_find(path, find)
+            case '3': # delete
+                db.f_delete(path)
+            case '4': # exit
                 a = False
