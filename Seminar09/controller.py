@@ -1,13 +1,13 @@
-from tkinter import *
+import SaveYouTube
 
 
-def main():
-    window = Tk()
-    window.title("Приложение для скачивания с YouTube")
-    lbl = Label(window, text="Привет")
+def clicked(e, lbl1):
+    # lbl.configure(text="Я же просил...")
+    value = e.get()
+    data = SaveYouTube.ytube(value)
+    
+    a = [(str(i)).split() for i in data]
 
-
-
-
-
-    window.mainloop()
+    
+    lbl1.configure(text=[b[3] for b in a])
+    e.grid(row=0, column=2, columnspan=3, padx=10, pady=10)
