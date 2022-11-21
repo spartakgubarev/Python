@@ -12,7 +12,7 @@ def ytube(PATH):
         use_oauth=False,
         allow_oauth_cache=True
         )
-
+    # print(yt.streams)
     # print(yt.streams.filter(progressive=True), sep='\n')       # filter(progressive=True) - фильтр прогрессивных поток (только аудио и видео вместе)
     # for i in yt.streams.filter(progressive='True'):
     #     print(i)
