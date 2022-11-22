@@ -2,8 +2,7 @@ from pytube import YouTube
 
 
 def ytube(PATH):
-    # PATH = input('Введите ссылку скачиваемого видео: ')
-    # PATH = 'https://www.youtube.com/watch?v=GP6F0y3eU0Q'
+    global yt
     yt = YouTube(
         PATH,
         #on_progress_callback=progress_func,
@@ -12,14 +11,8 @@ def ytube(PATH):
         use_oauth=False,
         allow_oauth_cache=True
         )
-    # print(yt.streams)
-    # print(yt.streams.filter(progressive=True), sep='\n')       # filter(progressive=True) - фильтр прогрессивных поток (только аудио и видео вместе)
-    # for i in yt.streams.filter(progressive='True'):
-    #     print(i)
-    # print(yt.streams[0])
     return yt.streams.filter(progressive='True')
 
-    # save_puth = input('Введите путь для сохранения: ')
-    # stream = yt.streams.get_by_itag(22)     # качество видео
-    # file_name = input('Введите название файла: ')
-    # stream.download(save_puth, file_name + '.mp4')          # сохранить с указанием пути и названием файла
+def save_ytube(itag, file_name, path):
+    stream = yt.streams.get_by_itag(itag)     # качество видео
+    stream.download(path, file_name)          # сохранить с указанием пути и названием файла
