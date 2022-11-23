@@ -11,8 +11,8 @@ def ytube(PATH):
         use_oauth=False,
         allow_oauth_cache=True
         )
-    return yt.streams.filter(progressive='True')
+    # return yt.streams.filter(progressive='True')
 
-def save_ytube(itag, file_name, path):
-    stream = yt.streams.get_by_itag(itag)     # качество видео
-    stream.download(path, file_name)          # сохранить с указанием пути и названием файла
+# def save_ytube(itag, file_name, path):
+    stream = yt.streams.get_by_itag(22)     # качество видео
+    stream.download()          # сохранить с указанием пути и названием файла
