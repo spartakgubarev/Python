@@ -20,13 +20,13 @@
 
 # Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z
 # (расшифровка этого выражения not (x[0] or x[1] or x[2] = not x[0] and not x[1] and not x[2]) для всех значений предикат.
-VAL = range(2)
-for x in VAL:
-    for y in VAL:
-        for z in VAL:
-            a = not(x or y or z)
-            b = not(x) and not(y) and not(z)
-            print(f'¬({x} ⋁ {y} ⋁ {z}) = ¬{x} ⋀ ¬{y} ⋀ ¬{z}  --> {a == b}')
+# VAL = range(2)
+# for x in VAL:
+#     for y in VAL:
+#         for z in VAL:
+#             a = not(x or y or z)
+#             b = not(x) and not(y) and not(z)
+#             print(f'¬({x} ⋁ {y} ⋁ {z}) = ¬{x} ⋀ ¬{y} ⋀ ¬{z}  --> {a == b}')
 
 
 # Напишите программу, которая принимает на вход координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт номер четверти плоскости, в которой находится эта точка .
@@ -34,6 +34,32 @@ for x in VAL:
 # - x=34; y=-30 -> 4
 # - x=2; y=4-> 1
 # - x=-34; y=-30 -> 3
+def correctness():  # проверка корректности ввода данных
+    while True:
+        number = input()
+        if number.isdigit() or number[0]=='-' and number[1:].isdigit(): # доп проверка на знак "-" и символы после него
+            num = int(number)
+            if num != 0:
+                return num
+        print('Не корректные данные!\nЕще раз:', end='')
+
+def quarter(x, y):  # поиск в какой четверти находится точка
+    if x > 0 and y > 0:
+        print(f'x={x}; y={y} --> 1')
+    elif x > 0 and y < 0:
+        print(f'x={x}; y={y} --> 4')
+    elif x < 0 and y > 0:
+        print(f'x={x}; y={y} --> 2')
+    elif x < 0 and y < 0:
+        print(f'x={x}; y={y} --> 3')
+
+print('Введите координаты точки (X, Y), причем X и Y не равын 0')
+print('Введите X:')
+x = correctness()
+print('Введите Y:')
+y = correctness()
+quarter(x, y)
+
 # Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
                     
 # Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
