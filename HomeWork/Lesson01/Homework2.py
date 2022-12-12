@@ -34,34 +34,52 @@
 # - x=34; y=-30 -> 4
 # - x=2; y=4-> 1
 # - x=-34; y=-30 -> 3
-def correctness():  # проверка корректности ввода данных
-    while True:
-        number = input()
-        if number.isdigit() or number[0]=='-' and number[1:].isdigit(): # доп проверка на знак "-" и символы после него
-            num = int(number)
-            if num != 0:
-                return num
-        print('Не корректные данные!\nЕще раз:', end='')
+# def correctness():  # проверка корректности ввода данных
+#     while True:
+#         number = input()
+#         if number.isdigit() or number[0]=='-' and number[1:].isdigit(): # доп проверка на знак "-" и символы после него
+#             num = int(number)
+#             if num != 0:
+#                 return num
+#         print('Не корректные данные!\nЕще раз:', end='')
 
-def quarter(x, y):  # поиск в какой четверти находится точка
-    if x > 0 and y > 0:
-        print(f'x={x}; y={y} --> 1')
-    elif x > 0 and y < 0:
-        print(f'x={x}; y={y} --> 4')
-    elif x < 0 and y > 0:
-        print(f'x={x}; y={y} --> 2')
-    elif x < 0 and y < 0:
-        print(f'x={x}; y={y} --> 3')
+# def quarter(x, y):  # поиск в какой четверти находится точка
+#     if x > 0 and y > 0:
+#         print(f'x={x}; y={y} --> 1')
+#     elif x > 0 and y < 0:
+#         print(f'x={x}; y={y} --> 4')
+#     elif x < 0 and y > 0:
+#         print(f'x={x}; y={y} --> 2')
+#     elif x < 0 and y < 0:
+#         print(f'x={x}; y={y} --> 3')
 
-print('Введите координаты точки (X, Y), причем X и Y не равын 0')
-print('Введите X:')
-x = correctness()
-print('Введите Y:')
-y = correctness()
-quarter(x, y)
+# print('Введите координаты точки (X, Y), причем X и Y не равын 0')
+# print('Введите X:')
+# x = correctness()
+# print('Введите Y:')
+# y = correctness()
+# quarter(x, y)
 
 # Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
-                    
+def correctness():
+    while True:
+        val = input('Введите номер четверти от 1 до 4: ')
+        if val.isdigit():
+            val = int(val)
+            if val >= 1 and val <= 4:
+                return val
+        print('Неверные данные!!!')
+
+def value_output(val):
+    if val == 1: print('X(0;+oo) U Y(0;+oo)')
+    elif val == 2: print('X(0;-oo) U Y(0;+oo)')
+    elif val == 3: print('X(0;-oo) U Y(0;-oo)')
+    elif val == 4: print('X(0;+oo) U Y(0;-oo)')
+
+value = correctness()
+value_output(value)
+
+
 # Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
 # Пример:
 # - A (3,6); B (2,1) -> 5,09
