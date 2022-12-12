@@ -61,26 +61,47 @@
 # quarter(x, y)
 
 # Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
-def correctness():
-    while True:
-        val = input('Введите номер четверти от 1 до 4: ')
-        if val.isdigit():
-            val = int(val)
-            if val >= 1 and val <= 4:
-                return val
-        print('Неверные данные!!!')
+# def correctness():
+#     while True:
+#         val = input('Введите номер четверти от 1 до 4: ')
+#         if val.isdigit():
+#             val = int(val)
+#             if val >= 1 and val <= 4:
+#                 return val
+#         print('Неверные данные!!!')
 
-def value_output(val):
-    if val == 1: print('X(0;+oo) U Y(0;+oo)')
-    elif val == 2: print('X(0;-oo) U Y(0;+oo)')
-    elif val == 3: print('X(0;-oo) U Y(0;-oo)')
-    elif val == 4: print('X(0;+oo) U Y(0;-oo)')
+# def value_output(val):
+#     if val == 1: print('X(0;+oo) U Y(0;+oo)')
+#     elif val == 2: print('X(0;-oo) U Y(0;+oo)')
+#     elif val == 3: print('X(0;-oo) U Y(0;-oo)')
+#     elif val == 4: print('X(0;+oo) U Y(0;-oo)')
 
-value = correctness()
-value_output(value)
+# value = correctness()
+# value_output(value)
 
 
 # Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 2D пространстве.
 # Пример:
 # - A (3,6); B (2,1) -> 5,09
 # - A (7,-5); B (1,-1) -> 7,21
+def correctness():
+    while True:
+        value = input()
+        if value.isdigit() or (value[0] == '-' and value[1:].isdigit()):
+            return int(value)
+        print('Неверные данные, еще раз: ')
+
+def hypotenuse(ax, ay, bx, by):
+    c = ((ax - bx)**2 + (ay - by)**2)**0.5
+    return c
+
+print('Введите координаты точки А(x1, y1) x1=: ')
+x1 = correctness()
+print('Введите координаты точки А(x1, y1) y1=: ')
+y1 = correctness()
+print('Введите координаты точки B(x2, y2) x2=: ')
+x2 = correctness()
+print('Введите координаты точки B(x2, y2) x2=: ')
+y2 = correctness()
+c = hypotenuse(x1, y1, x2, y2)
+print(f'A ({x1},{y1}); B({x2};{y2}) --> {c:.2f}')
