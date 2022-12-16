@@ -8,25 +8,43 @@
 
 
 #  1. По двум заданным числам проверять является ли первое квадратом второго
+# def main():
+#     def number_int():
+#         while True:
+#             num = input()
+#             if num.isdigit():
+#                 return int(num)
+#             print('Введенное значение не число, попробуйте еще раз: ')
+#     print('Введите первое число: ', end='')
+#     number1 = number_int()
+#     print('Введите второе число: ', end='')
+#     number2 = number_int()
+#     if number1 ** 2 == number2:
+#         print(f'Первое число {number1} является квадратом второго числа {number2}')
+#     else:
+#         print(f'Первое число {number1} не является квадратом второго числа {number2}')
+# main()
+
+
+#  2. Даны два числа. Показать большее и меньшее число
 def main():
-    def number_int():
+    def examination():
         while True:
             num = input()
             if num.isdigit():
                 return int(num)
-            print('Введенное значение не число, попробуйте еще раз: ')
-    print('Введите первое число: ', end='')
-    number1 = number_int()
-    print('Введите второе число: ', end='')
-    number2 = number_int()
-    if number1 ** 2 == number2:
-        print(f'Первое число {number1} является квадратом второго числа {number2}')
-    else:
-        print(f'Первое число {number1} не является квадратом второго числа {number2}')
+            print('Ввели не число, попробуйте еще раз: ')
+    print('Программа покажет большее и меньшее число.')
+    print('Введите первое число:', end='')
+    val1 = examination()
+    print('Введите второе число:', end='')
+    val2 = examination()
+    val_max = max(val1, val2)
+    val_min = min(val1, val2)
+    print(f'Большее число - {val_max}, меньшее числое - {val_min}')
 main()
 
 
-#  2. Даны два числа. Показать большее и меньшее число
 #  3. По заданному номеру дня недели вывести его название
 #  4. Найти максимальное из трех чисел
 #  5. Написать программу вычисления значения функции y = f(a)
