@@ -38,20 +38,38 @@
 # Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на
 # указанных позициях. Позиции хранятся в отдельном списке (пример n=4, lst1=[4,-2,1,3] - список на основе n,
 # а позиции элементов lst2=[3,1].
-import random
+# import random
 
-sum = 1
-lst = []
-n = int(input('Введите значение N, заполню их [-N, N]: '))
-search = input(f'Введите диапозон индекса искомого произведения от 0 до {n-1} через пробел, например [3 6]: ')
-lst2 = search.split()
-for i in range(n):
-    rnd = random.randint(-n, n)
-    lst.append(rnd)
-for j in range(int(lst2[0]), int(lst2[1])+1):
-    sum *= lst[j]
-print(lst)
-print(f'Произведение элементов от {lst2[0]} по {lst2[1]} равно: {sum}')
+# sum = 1
+# lst = []
+# n = int(input('Введите значение N, заполню их [-N, N]: '))
+# search = input(
+#     f'Введите диапозон индекса искомого произведения от 0 до {n-1} через пробел, например [3 6]: ')
+# lst2 = search.split()
+# for i in range(n):
+#     rnd = random.randint(-n, n)
+#     lst.append(rnd)
+# for j in range(int(lst2[0]), int(lst2[1])+1):
+#     sum *= lst[j]
+# print(lst)
+# print(f'Произведение элементов от {lst2[0]} по {lst2[1]} равно: {sum}')
 
 
 # Реализуйте алгоритм перемешивания списка. (рандомно поменять местами элементы списка между собой)
+import random
+
+
+COUNT = 50 # диапозон рандомных чисел
+n = int(input('Введите количество элементов в списке: '))
+lst = []
+lst2 = []
+for i in range(n):
+    lst.append(random.randint(-COUNT, COUNT))
+print(lst)
+
+_arr = lst
+for j in range(n):
+    rnd = random.randint(0, n-1-j)
+    lst2.append(_arr[rnd])
+    _arr.pop(rnd)    
+print(lst2)
