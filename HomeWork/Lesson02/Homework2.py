@@ -2,18 +2,25 @@
 # Пример:
 # - 6782 -> 23
 # - 0,56 -> 11
-sum = 0
-value = input('Введите любое вещественное число: ')
-for i in range(len(value)):
-    if value[i].isdigit():
-        sum += int(value[i])
-print(f'{value} --> {sum}')
+# sum = 0
+# value = input('Введите любое вещественное число: ')
+# for i in range(len(value)):
+#     if value[i].isdigit():
+#         sum += int(value[i])
+# print(f'{value} --> {sum}')
 
 
 # Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
 # Пример:
 # - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
-
+# sum = 1
+sum = 1
+lst = []
+val = int(input('Введите целое число, я посчитаю факториал: '))
+for i in range(1, val + 1):
+    sum *= i
+    lst.append(sum)
+print(lst)
 
 # Задайте список из n чисел последовательности (1+1/n)**n и выведите на экран их сумму.
 # Пример:
