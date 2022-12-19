@@ -1,31 +1,45 @@
 # Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 # Пример:
 # - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
-import random
+# import random
 
 
-def create_list(amount):
-    lst = []
-    for i in range(amount):
-        rnd = random.randint(1, 20)
-        lst.append(rnd)
-    return lst
+# def create_list(amount):
+#     lst = []
+#     for i in range(amount):
+#         rnd = random.randint(1, 20)
+#         lst.append(rnd)
+#     return lst
 
-list1 = create_list(int(input('Введите длину списка: ')))
-lst2 = []
-sum = 0
+# list1 = create_list(int(input('Введите длину списка: ')))
+# lst2 = []
+# sum = 0
 
-for i in range(1, len(list1), 2):   # начало итерации с 1, шагаем по 2, по нечетным позициям
-    lst2.append(list1[i])
-    sum += list1[i]
+# for i in range(1, len(list1), 2):   # начало итерации с 1, шагаем по 2, по нечетным позициям
+#     lst2.append(list1[i])
+#     sum += list1[i]
 
-print(f'{list1} --> на нечетных позициях {lst2}, ответ: {sum}')
+# print(f'{list1} --> на нечетных позициях {lst2}, ответ: {sum}')
 
 
 # Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 # Пример:
 # - [2, 3, 4, 5, 6] => [12, 15, 16];
 # - [2, 3, 5, 6] => [12, 15]
+def even_odd(num):  # определяем четный или нечетный список для подсчета среднего элемента списка
+    if len(lst) % 2 != 0:
+        return len(lst) // 2 + 1
+    else:
+        return len(lst) // 2
+
+lst = [2, 3, 4, 5, 6]
+lst1 = []
+
+lst_len = even_odd(len(lst))
+
+for i in range(lst_len):
+    lst1.append(lst[i] * lst[-1-i])
+print(f'{lst} --> {lst1}')
 
 
 # Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
