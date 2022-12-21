@@ -13,12 +13,15 @@
 # Тимур - лучший математик на свете!!
 # Sample Output 2:
 # 21 р. 0 коп.
-PRICE = 0.6
-value = input('Введите текст: ')
-len_txt = len(value)
-a = PRICE*len_txt//1
-b = (PRICE*len_txt - a) * 100
-print(f'{int(a)} р. {int(round(b,2))} коп.')
+
+# PRICE = 0.6
+# value = input('Введите текст: ')
+# len_txt = len(value)
+# a = PRICE*len_txt//1
+# b = (PRICE*len_txt - a) * 100
+# print(f'{int(a)} р. {int(round(b,2))} коп.')
+
+
 
 # Количество слов
 # Дана строка, состоящая из слов, разделенных пробелами. Напишите программу, которая подсчитывает количество слов в этой строке.
@@ -35,6 +38,9 @@ print(f'{int(a)} р. {int(round(b,2))} коп.')
 # Timur forever young
 # Sample Output 2:
 # 3
+
+text = 'Timur forever young'
+print(len(text.split()))
 
 
 # На колесе рулетки карманы пронумерованы от 0 до 36. Ниже приведены цвета карманов:
