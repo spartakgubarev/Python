@@ -45,82 +45,93 @@
 # Sample Output 3:
 # 31
 
-def hit_count(text):
-    tails = 0
-    tails_max = 0
-    for i in text:
-        if i == 'Р':
-            tails += 1
-            if tails > tails_max:
-                tails_max = tails
-        else:
-            tails = 0
-    print(tails_max)
+# def hit_count(text):
+#     tails = 0
+#     tails_max = 0
+#     for i in text:
+#         if i == 'Р':
+#             tails += 1
+#             if tails > tails_max:
+#                 tails_max = tails
+#         else:
+#             tails = 0
+#     print(tails_max)
 
 
-txt = 'ОРРОРОРООРРРО'   # 3
-hit_count(txt)
+# txt = 'ОРРОРОРООРРРО'   # 3
+# hit_count(txt)
 
-txt = 'ООООООРРРОРОРРРРРРР'  # 7
-hit_count(txt)
+# txt = 'ООООООРРРОРОРРРРРРР'  # 7
+# hit_count(txt)
 
-txt = 'ООООРРРРОРОРРРРРРРРООРОРОРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР'    # 31
-hit_count(txt)
+# txt = 'ООООРРРРОРОРРРРРРРРООРОРОРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР'    # 31
+# hit_count(txt)
 
-txt = 'ОООО'    # 0
-hit_count(txt)
+# txt = 'ОООО'    # 0
+# hit_count(txt)
+
 
 # 3)
 # Искусственный интеллект Антон, созданный Гилфойлом, взломал сеть умных холодильников. Теперь он использует их в качестве серверов "Пегого дудочника".
 # Помогите владельцу фирмы отыскать все зараженные холодильники.
-# Для каждого холодильника существует строка с данными, состоящая из строчных букв и цифр, и если в ней присутствует слово "anton" (необязательно рядом стоящие буквы, главное наличие последовательности букв), то холодильник заражен и нужно вывести номер холодильника, нумерация начинается с единицы
+# Для каждого холодильника существует строка с данными, состоящая из строчных букв и цифр, и если в ней присутствует слово "anton" (необязательно рядом стоящие буквы,
+# главное наличие последовательности букв), то холодильник заражен и нужно вывести номер холодильника, нумерация начинается с единицы
 # Формат входных данных
-# В первой строке подаётся число
-# n
-# n – количество холодильников. В последующих
-# n
-# n строках вводятся строки, содержащие латинские строчные буквы и цифры, в каждой строке от
-# 5
-# 5 до
-# 100
-# 100 символов.
-# Формат выходных данных
-# Программа должна вывести номера зараженных холодильников через пробел. Если таких холодильников нет, ничего выводить не нужно.
-# Формат входных данных
-# В первой строке подаётся число
-# n
-# n – количество холодильников. В последующих
-# n
-# n строках вводятся строки, содержащие латинские строчные буквы и цифры, в каждой строке от
-# 5
-# 5 до
-# 100
-# 100 символов.
-# Формат выходных данных
-# Программа должна вывести номера зараженных холодильников через пробел. Если таких холодильников нет, ничего выводить не нужно.
-# Sample Input 1:
-# 6
-# 222anton456
-# a1n1t1o1n1
-# 0000a0000n00t00000o000000n
-# gylfole
-# richard
-# ant0n
-# Sample Output 1:
-# 1 2 3
-# Sample Input 2:
-# 9
-# osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen
-# anton
-# aoooooooooontooooo
-# elelelelelelelelelel
-# ntoneeee
-# tonee
-# 253235235a5323352n25235352t253523523235oo235523523523n
-# antoooooooooooooooooooooooooooooooooooooooooooooooooooon
-# unton
-# Sample Output 2:
-# 1 2 7 8
+# В первой строке подаётся число n, n – количество холодильников. В последующих
+# # n строках вводятся строки, содержащие латинские строчные буквы и цифры, в каждой строке от 5 до 100 символов.
+# Формат выходных данных. Программа должна вывести номера зараженных холодильников через пробел. Если таких холодильников нет, ничего выводить не нужно.
+# Sample Input 1: 6 # 222anton456 # a1n1t1o1n1 # 0000a0000n00t00000o000000n # gylfole # richard # ant0n
+# Sample Output 1: # 1 2 3
+# # Sample Input 2: # 9 # osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen # anton # aoooooooooontooooo # elelelelelelelelelel # ntoneeee # tonee
+# 253235235a5323352n25235352t253523523235oo235523523523n # antoooooooooooooooooooooooooooooooooooooooooooooooooooon # unton
+# Sample Output 2: # 1 2 7 8
+
+import random
+
+
+def rand_txt(amount):
+    arr = []
+    lis = []
+    str_text = ''
+
+    for u in range(48, 58):
+        arr.append(chr(u))
+
+    for u in range(97, 123):
+        arr.append(chr(u))
+
+    for i in range(amount):
+        rnd = random.randint(5, 100)
+        for rand in range(rnd):
+            rand_chr = random.choice(arr)
+            str_text += rand_chr
+        lis.append(str_text)
+        str_text = ''
+    return lis
+
+
+def search_bag(txt):
+    number = []
+    for i in txt:
+        count = 0
+        for j in range(len(i)):
+            if count < len(SEARCH) and SEARCH[count] == i[j]:
+                count += 1
+        if count == len(SEARCH):
+            number.append(txt.index(i)+1)
+    return number
+
+
+n = int(input('Введите число холодильников: '))
+text_list = rand_txt(n)
+
+SEARCH = 'anton'
+# text_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen', 'anton',
+#             'aoooooooooontooooo', 'elelelelelelelelelel', 'ntoneeee', 'tonee', '253235235a5323352n25235352t253523523235oo235523523523n',
+#             'antoooooooooooooooooooooooooooooooooooooooooooooooooooon', 'unton']
+num = search_bag(text_list)
+print(text_list)
+print(num)
 
 
 # 4)Создать текстовый файл, записать в него построчно данные, которые вводит пользователь. Окончанием ввода пусть служит пустая строка.
