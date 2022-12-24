@@ -86,52 +86,61 @@
 # 253235235a5323352n25235352t253523523235oo235523523523n # antoooooooooooooooooooooooooooooooooooooooooooooooooooon # unton
 # Sample Output 2: # 1 2 7 8
 
-import random
+# import random
 
 
-def rand_txt(amount):
-    arr = []
-    lis = []
-    str_text = ''
+# def rand_txt(amount):
+#     arr = []
+#     lis = []
+#     str_text = ''
 
-    for u in range(48, 58):
-        arr.append(chr(u))
+#     for u in range(48, 58):
+#         arr.append(chr(u))
 
-    for u in range(97, 123):
-        arr.append(chr(u))
+#     for u in range(97, 123):
+#         arr.append(chr(u))
 
-    for i in range(amount):
-        rnd = random.randint(5, 100)
-        for rand in range(rnd):
-            rand_chr = random.choice(arr)
-            str_text += rand_chr
-        lis.append(str_text)
-        str_text = ''
-    return lis
-
-
-def search_bag(txt):
-    number = []
-    for i in txt:
-        count = 0
-        for j in range(len(i)):
-            if count < len(SEARCH) and SEARCH[count] == i[j]:
-                count += 1
-        if count == len(SEARCH):
-            number.append(txt.index(i)+1)
-    return number
+#     for i in range(amount):
+#         rnd = random.randint(5, 100)
+#         for rand in range(rnd):
+#             rand_chr = random.choice(arr)
+#             str_text += rand_chr
+#         lis.append(str_text)
+#         str_text = ''
+#     return lis
 
 
-n = int(input('Введите число холодильников: '))
-text_list = rand_txt(n)
+# def search_bag(txt):
+#     number = []
+#     for i in txt:
+#         count = 0
+#         for j in range(len(i)):
+#             if count < len(SEARCH) and SEARCH[count] == i[j]:
+#                 count += 1
+#         if count == len(SEARCH):
+#             number.append(txt.index(i)+1)
+#     return number
 
-SEARCH = 'anton'
-# text_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen', 'anton',
-#             'aoooooooooontooooo', 'elelelelelelelelelel', 'ntoneeee', 'tonee', '253235235a5323352n25235352t253523523235oo235523523523n',
-#             'antoooooooooooooooooooooooooooooooooooooooooooooooooooon', 'unton']
-num = search_bag(text_list)
-print(text_list)
-print(num)
+
+# n = int(input('Введите число холодильников: '))
+# text_list = rand_txt(n)
+
+# SEARCH = 'anton'
+# # text_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen', 'anton',
+# #             'aoooooooooontooooo', 'elelelelelelelelelel', 'ntoneeee', 'tonee', '253235235a5323352n25235352t253523523235oo235523523523n',
+# #             'antoooooooooooooooooooooooooooooooooooooooooooooooooooon', 'unton']
+# num = search_bag(text_list)
+# print(text_list)
+# print(num)
 
 
 # 4)Создать текстовый файл, записать в него построчно данные, которые вводит пользователь. Окончанием ввода пусть служит пустая строка.
+
+path = 'G:\\Учеба\\Разработчик\\repo\\Python\\Seminar03\\text.txt'
+
+with open(path, 'a') as file:
+    print('Введите текст. Для выхода нажмите Enter.')
+    text = input()
+    while text != '':
+        file.write(text + '\n')
+        text = input()
