@@ -126,18 +126,27 @@
 
 
 # 11. Дано число из отрезка [10, 99]. Показать наибольшую цифру числа
-import random
+# import random
 
 
-rnd = random.randint(10, 99)
-ls = str(rnd)
-print(ls)
-if ls[0] > ls[1]:
-    print(ls[0])
-else:
-    print(ls[1])
+# rnd = random.randint(10, 99)
+# ls = str(rnd)
+# print(ls)
+# if ls[0] > ls[1]:
+#     print(ls[0])
+# else:
+#     print(ls[1])
 
 
 # 12. Удалить вторую цифру трёхзначного числа
+a = 456
+b = int(str(a)[0::2])
+print(b)
+c = int(str(a)[0] + str(a)[2])
+print(c)
+d = a//100*10+a % 10
+print(d)
+
+
 # 13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
 # 14. Найти третью цифру числа или сообщить, что её нет
