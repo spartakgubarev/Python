@@ -149,12 +149,17 @@
 
 
 # 13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
-dividend = int(input('Введите делимое: '))
-divider = int(input('Введите делитель: '))
-if dividend % divider == 0:
-    print('кратно')
-else:
-    print(f'остаток от деления = {dividend%divider}')
+# dividend = int(input('Введите делимое: '))
+# divider = int(input('Введите делитель: '))
+# if dividend % divider == 0:
+#     print('кратно')
+# else:
+#     print(f'остаток от деления = {dividend%divider}')
 
 
 # 14. Найти третью цифру числа или сообщить, что её нет
+number = int(input('Введите число: '))
+if len(str(number)) < 3:
+    print('Третьей цифры нет в данном числе.')
+else:
+    print(f'Третья цифра числа - {int(str(number)[2])}')
