@@ -139,14 +139,22 @@
 
 
 # 12. Удалить вторую цифру трёхзначного числа
-a = 456
-b = int(str(a)[0::2])
-print(b)
-c = int(str(a)[0] + str(a)[2])
-print(c)
-d = a//100*10+a % 10
-print(d)
+# a = 456
+# b = int(str(a)[0::2])
+# print(b)
+# c = int(str(a)[0] + str(a)[2])
+# print(c)
+# d = a//100*10+a % 10
+# print(d)
 
 
 # 13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
+dividend = int(input('Введите делимое: '))
+divider = int(input('Введите делитель: '))
+if dividend % divider == 0:
+    print('кратно')
+else:
+    print(f'остаток от деления = {dividend%divider}')
+
+
 # 14. Найти третью цифру числа или сообщить, что её нет
