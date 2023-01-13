@@ -46,29 +46,45 @@
 
 
 #  3. По заданному номеру дня недели вывести его название
-def main():
-    def examination_days(val):
-        if val == 1: return 'понедельник'
-        elif val == 2: return 'вторник'
-        elif val == 3: return 'среда'
-        elif val == 4: return 'четверг'
-        elif val == 5: return 'пятница'
-        elif val == 6: return 'суббота'
-        elif val == 7: return 'воскресенье'
-        return 'такой недели не существует :-)'
-    def examination_integer():
-        while True:
-            num = input()
-            if num.isdigit():
-                return int(num)
-            print('Введенное значение не является числом, попробуйте еще раз:')
-    print('Введите номер дня недели, я выведу название: ', end='')
-    day = examination_integer()
-    print(examination_days(day))
-main()
+# def main():
+#     def examination_days(val):
+#         if val == 1: return 'понедельник'
+#         elif val == 2: return 'вторник'
+#         elif val == 3: return 'среда'
+#         elif val == 4: return 'четверг'
+#         elif val == 5: return 'пятница'
+#         elif val == 6: return 'суббота'
+#         elif val == 7: return 'воскресенье'
+#         return 'такой недели не существует :-)'
+#     def examination_integer():
+#         while True:
+#             num = input()
+#             if num.isdigit():
+#                 return int(num)
+#             print('Введенное значение не является числом, попробуйте еще раз:')
+#     print('Введите номер дня недели, я выведу название: ', end='')
+#     day = examination_integer()
+#     print(examination_days(day))
+# main()
+
 
 
 #  4. Найти максимальное из трех чисел
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# print()
+# if a > b:
+#     if a > c:
+#         print(a)
+#     else:
+#         print(c)
+# else:
+#     if b > c:
+#         print(b)
+#     else:
+#         print(c)
+
 #  5. Написать программу вычисления значения функции y = f(a)
 #  6. Выяснить является ли число чётным
 #  7. Показать числа от -N до N
