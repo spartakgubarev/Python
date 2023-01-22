@@ -11,6 +11,8 @@
 # 3. на входе такой список a = [4, 3, -10, 1, 7, 12], получить такой [4, -10, 12, 3, 1, 7]
 a = [4, 3, -10, 1, 7, 12]
 print(a)
+a = sorted(a, key=lambda x: x % 2 != 0)
+a.sort(key=lambda q: q % 2)
 a = [i for i in a if i % 2 == 0] + [i for i in a if i % 2 != 0]
 print(a)
 
