@@ -17,15 +17,24 @@ def write_f():
     return first_name, last_name, tel_number, description
 
 
-def read_f():
-    return input('Что ищем? (введите имя, фамилию, телефон или описание: ')
-
 
 def f_name():
     return input('Введите имя файла и расширение: ')
 
 
 def f_print(text):
-    text = list(map(lambda x: x.replace('\n', ''), text))
-    text = list(map(lambda x: x.replace(';', ' '), text))
     [print(i) for i in text]
+
+
+def search_text(text):
+    a = ''
+    find = input('Что ищем? (введите имя, фамилию, телефон или описание: ')
+    for i in text:
+        if find in i:
+            a += i
+    if a: print(a)
+    else: print('Ничего не найдено!')
+
+
+def save_file():
+    return input('Введите название файла и расширение: ')

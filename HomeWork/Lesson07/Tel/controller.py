@@ -15,17 +15,18 @@ def main():
                 print("Файл не существует!")
         elif info == '2':
             exit()
+
+
 def action(txt):
     while True:
         act = gui.what_do()
-        if act == '1': # Вывести справочник
+        if act == '1':  # Вывести справочник
             gui.f_print(txt)
-        elif act == '2': # Искать
+        elif act == '2':  # Искать
+            gui.search_text(txt)
+        elif act == '3':  # Добавить
             pass
-        elif act == '3': # Добавить
-            pass
-        elif act == '4': # Сохранить
-            pass
-        elif act == '5': # Вернуть на шаг назад
+        elif act == '4':  # Сохранить
+            db.save_file(txt)
+        elif act == '5':  # Вернуть на шаг назад
             return
-
