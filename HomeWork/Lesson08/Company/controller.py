@@ -3,7 +3,6 @@ import database
 import find_pers
 
 
-
 def main():
     data = database.read_file()
     while True:
@@ -12,7 +11,7 @@ def main():
         if num == 1:
             find = view.find_peaple()
             [view.info(i) for i in data if find in i]
-            
+
         elif num == 2:
             find = view.find_position().split()
             for j in find:
@@ -42,6 +41,7 @@ def main():
         elif num == 7:
             pass
         elif num == 8:
-            pass
+            f_name = view.filename()
+            database.save_csv(f_name, data)
         elif num == 9:
             exit()

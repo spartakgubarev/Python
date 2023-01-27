@@ -16,12 +16,14 @@ def show_menu() -> int:
 def find_peaple():
     return input('Find? ')
 
+
 def find_position():
-    return input('Введите искомые должности через пробел (Директор Бухгалтер,\
-    Заместитель директора): ')
+    return input('Введите искомые должности через пробел (Директор Бухгалтер, Заместитель директора): ')
+
 
 def find_salary():
     return input('Введите промежуток зарплат через пробел (150000 250000): ')
+
 
 def personal():
     return input('Введите имя и фамилию сотрудника через пробел: ')
@@ -34,11 +36,17 @@ def add_new_personal():
     salary = input('Salary: ')
     return f'{name};{surname};{position};{salary}\n'
 
+
 def update_personal():
     position = input('Position: ')
     salary = input('Salary: ')
     return f'{position};{salary}\n'
 
+
 def info(message):
     message = message.replace(';', ' ')
     print(message)
+
+
+def filename():
+    return input('Введите назвние файла без расширения (предыдущий файл db.csv): ')
