@@ -23,6 +23,8 @@ def find_position():
 def find_salary():
     return input('Введите промежуток зарплат через пробел (150000 250000): ')
 
+def del_personal():
+    return input('Введите имя и фамилию сотрудника через пробел, для удаления: ')
 
 
 def add_new_personal():

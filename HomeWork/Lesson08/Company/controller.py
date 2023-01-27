@@ -6,6 +6,7 @@ def main():
     while True:
         num = view.show_menu()
         data = database.read_file()
+        print(data)
 
         if num == 1:
             find = view.find_peaple()
@@ -26,7 +27,15 @@ def main():
             data.append(personal)
             view.info('Сотрудник добавлен.')
         elif num == 5:
-            pass
+            personal = view.del_personal().replace(' ', ';')
+            for i in data:
+                if i.find(personal) != -1:
+                    f_index = data.index(i)
+            if f_index != -1:
+                del data[f_index]
+                view.info('Сотрудник удален.')
+            else:
+                view.info('Такого сотрудника нет.')
         elif num == 6:
             pass
         elif num == 7:
