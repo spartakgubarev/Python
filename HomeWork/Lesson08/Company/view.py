@@ -16,6 +16,13 @@ def show_menu() -> int:
 def find_peaple():
     return input('Find? ')
 
+def find_position():
+    return input('Введите искомые должности через пробел (Директор Бухгалтер,\
+    Заместитель директора): ')
+
+def find_salary():
+    return input('Введите промежуток зарплат через пробел (150000 250000): ')
+
 
 
 def add_new_personal():
@@ -23,8 +30,9 @@ def add_new_personal():
     surname = input('Surname: ')
     position = input('Position: ')
     salary = input('Salary: ')
-    return name, surname, position, salary
+    return f'{name};{surname};{position};{salary}\n'
 
 
 def info(message):
+    message = message.replace(';', ' ')
     print(message)
