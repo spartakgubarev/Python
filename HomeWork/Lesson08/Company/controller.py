@@ -37,11 +37,16 @@ def main():
         elif num == 6:
             personal = view.personal().replace(' ', ';')
             data = find_pers.find_personal(personal, data, num)
-
         elif num == 7:
-            pass
+            f_name = view.filename()
+            database.save_json(f_name, data)
         elif num == 8:
             f_name = view.filename()
             database.save_csv(f_name, data)
         elif num == 9:
-            exit()
+            a = input('Сохранить редактируемый файл (1 - Да, все остальное - нет: ')
+            if a == '1':
+                database.save_file(data)
+                exit()
+            else:
+                exit()
