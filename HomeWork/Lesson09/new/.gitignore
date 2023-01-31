@@ -1,2 +1,3 @@
 ignore ALL .log files
 venv
+ignore log.csv
