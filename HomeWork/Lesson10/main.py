@@ -1,17 +1,40 @@
 import time
 import logging
 from aiogram import Bot, Dispatcher, executor, types
+import data
+import controller
 
-# def main():
+
+data = data.db()  # забираю из базы все анекдоты
+
 # 'UTF-8-sig'
-logging.basicConfig(level=logging.INFO, filename="bot_log.csv", filemode="w",
+logging.basicConfig(level=logging.INFO, filename="G:/Учеба/Разработчик/repo/Python/HomeWork/Lesson10/bot_log.csv", filemode="w",
                     format="%(asctime)s: %(levelname)s %(funcName)s-%(lineno)d %(message)s")
-
 
 MSG = "{}, choose an action:"
 
 bot = Bot("5653417093:AAEOT_kwPw0vHD1Mr-erFPXb4eNhuX8E_8o")
 dp = Dispatcher(bot=bot)
+
+
+@dp.message_handler(commands=['help'])
+async def start_handler(message: types.Message):
+
+    await message.reply(f"Команды:\n/help - доступные команды\n/start - запускает калькулятор\n/joke - анекдот\n/calculator - калькулятор\n/weather murmansk - погода")
+
+
+@dp.message_handler(commands=['weather'])
+async def start_handler(message: types.Message):
+    msg = message.text
+    items = msg.split()
+    town = controller.weather(items[1])
+    await message.reply(f"{town}")
+
+
+@dp.message_handler(commands=['joke'])
+async def start_handler(message: types.Message):
+    joke = controller.main(data)
+    await message.reply(f'{joke}')
 
 
 @dp.message_handler(commands=['start'])
@@ -34,31 +57,31 @@ async def start_handler(message: types.Message):
 @dp.message_handler(commands=['quit'])
 async def quit_handler(message: types.Message):
     await bot.send_message(message.from_user.id, 'Goodbye! See you...',
-                        reply_markup=types.ReplyKeyboardRemove())
+                           reply_markup=types.ReplyKeyboardRemove())
 
 value = ""
 old_value = ""
 keyboard = types.InlineKeyboardMarkup(resize_keyboard=True)
 keyboard.row(types.InlineKeyboardButton("C", callback_data="C"),
-            types.InlineKeyboardButton("<=", callback_data="<="),
-            types.InlineKeyboardButton("(", callback_data="("),
-            types.InlineKeyboardButton("/", callback_data="/"))
+             types.InlineKeyboardButton("<=", callback_data="<="),
+             types.InlineKeyboardButton("(", callback_data="("),
+             types.InlineKeyboardButton("/", callback_data="/"))
 keyboard.row(types.InlineKeyboardButton("7", callback_data="7"),
-            types.InlineKeyboardButton("8", callback_data="8"),
-            types.InlineKeyboardButton("9", callback_data="9"),
-            types.InlineKeyboardButton("*", callback_data="*"))
+             types.InlineKeyboardButton("8", callback_data="8"),
+             types.InlineKeyboardButton("9", callback_data="9"),
+             types.InlineKeyboardButton("*", callback_data="*"))
 keyboard.row(types.InlineKeyboardButton("Button 1", callback_data="4"),
-            types.InlineKeyboardButton("5", callback_data="5"),
-            types.InlineKeyboardButton("6", callback_data="6"),
-            types.InlineKeyboardButton("-", callback_data="-"))
+             types.InlineKeyboardButton("5", callback_data="5"),
+             types.InlineKeyboardButton("6", callback_data="6"),
+             types.InlineKeyboardButton("-", callback_data="-"))
 keyboard.row(types.InlineKeyboardButton("1", callback_data="1"),
-            types.InlineKeyboardButton("2", callback_data="2"),
-            types.InlineKeyboardButton("3", callback_data="3"),
-            types.InlineKeyboardButton("+", callback_data="+"))
+             types.InlineKeyboardButton("2", callback_data="2"),
+             types.InlineKeyboardButton("3", callback_data="3"),
+             types.InlineKeyboardButton("+", callback_data="+"))
 keyboard.row(types.InlineKeyboardButton("0", callback_data="0"),
-            types.InlineKeyboardButton(",", callback_data="."),
-            types.InlineKeyboardButton(")", callback_data=")"),
-            types.InlineKeyboardButton("=", callback_data="="))
+             types.InlineKeyboardButton(",", callback_data="."),
+             types.InlineKeyboardButton(")", callback_data=")"),
+             types.InlineKeyboardButton("=", callback_data="="))
 
 
 @dp.message_handler(commands=['calculator'])
@@ -108,5 +131,7 @@ async def callback_calc(query):
     if value == "Error":
         value = ""
 
+print('server start')
 if __name__ == '__main__':
     executor.start_polling(dp)
+print('server exit')
